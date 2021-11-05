@@ -322,6 +322,12 @@ html body {
     .m-t-40 {
         margin-top: 40px;
     }
+    .m-t-45 {
+        margin-top: 45px;
+    }
+    .m-t-50 {
+        margin-top: 50px;
+    }
     .m-b-0 {
         margin-bottom: 0px;
     }
@@ -342,6 +348,9 @@ html body {
     }
     .m-b-40 {
         margin-bottom: 40px;
+    }
+    .m-b-50 {
+        margin-bottom: 50px;
     }
 }
 
@@ -500,6 +509,10 @@ Text Colors
     color: $muted!important;
 }
 
+.text-crimson {
+    color: $crimson!important;
+}
+
 .text-warning {
     color: $warning!important;
 }
@@ -528,6 +541,15 @@ Text Colors
     background-clip: text;
     -webkit-text-fill-color: transparent;
     text-fill-color:transparent;
+}
+
+.icon-color-red {
+    background: #188ef4;
+    background: linear-gradient(to right, #f41818 0%, #000000 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
 }
 
 html body {

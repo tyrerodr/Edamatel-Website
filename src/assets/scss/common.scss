@@ -163,7 +163,10 @@ Title
 .title {
     margin: 20px 0 15px;
 }
-
+.title-border {
+    margin: 20px 0 15px;
+    -webkit-text-stroke: 2px black;
+}
 
 /******************* 
 Subtitle
