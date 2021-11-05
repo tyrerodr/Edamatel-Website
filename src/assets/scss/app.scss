@@ -890,6 +890,24 @@ Buttons
         box-shadow:none;
     }
 }
+
+.btn-top{
+    color:$white;
+    padding: 10px 10px;
+    cursor: pointer;
+    box-shadow:0 2px 5px rgba(0, 0, 0, 0.14);
+    transition: 0s;
+    border-radius: 5px;
+    margin: 5px;
+    justify-content: center;
+    &:hover{
+        color: $white;
+    }
+    &:focus{
+        box-shadow:none;
+    }
+}
+
 .btn-link{
     box-shadow: none;
     color:$dark;
@@ -1144,11 +1162,11 @@ Buttons
 }
 
 .btn-danger-gradiant{
-    @include linear-gradient (to right, $danger 0%, $orange 100%);
+    @include linear-gradient (to right, $secondary 0%, $inverse 100%);
     border:0px;
     
     &:hover{
-        @include linear-gradient (to right, $orange 0%, $danger 100%);
+        @include linear-gradient (to right, $secondary 50%, $inverse 100%);
         
     }
     &.active, &:active, &:focus{

@@ -11,33 +11,63 @@ Topbar
 *******************/ 
 
 .topbar {
-    padding: 0px;
+    padding: 0 px;
     transition: 0.2s ease-in;
     width: 100%;
-    position: absolute;
+    background-color: rgb(255, 255, 255);
     z-index: 20;
+    
 }
 
-/*******************
+/*******************    
 Header 6
 *******************/
 .header6{ 
-    .navbar-toggler{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    .navbar-toggler{    
         color:$white;
     }
     .navbar-brand{
         line-height: 80px;
-    } 
+    }   
+}  
+.headernav{ 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    background-color: crimson;
+    justify-content: space-between;
+    align-items: baseline;
+    .navbar-toggler{    
+        color:$white;
+    }
+    .navbar-brand{
+        line-height: 80px;
+    }   
+}   
+
+.buttons-top{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    flex-wrap: wrap;
 }
-.h6-nav-bar{
+
+.h6-nav-bar{  
     padding:0px;
     .navbar-nav{
         .nav-link{
-            padding: 35px 15px;
-            color:rgba(255, 255, 255, 0.5);
+            padding: 23px 15px;
+            color:rgba(0, 0, 0, 0.596);    
         }
         .nav-item:hover .nav-link, .nav-item.active .nav-link{
-            color:rgba(255, 255, 255, 1);
+            color:rgb(255, 255, 255);
         }
     }
     .act-buttons{
@@ -51,7 +81,7 @@ Header 6
     .h6-nav-bar{
         .navbar-nav{
             .nav-link{
-                padding: 15px 15px;
+                padding: 12px 12px;
             }
         }
         .act-buttons{
@@ -119,7 +149,13 @@ Spacer
     padding: 40px 0;
 }
 
+.marginleft-redes{
+    margin-left: 380px;
+}
 
+.marginleft-buton{
+    margin-left: 150px;
+}
 /******************* 
 Title
 *******************/
@@ -204,6 +240,14 @@ Listing
             padding: 15px 0;
         }
     }
+}
+
+
+/******************* 
+img top
+*******************/
+.img-top{
+    height: 100px;
 }
 
 
@@ -371,6 +415,14 @@ position
     position: relative;
 }
 
+.po-fixed{
+    position: fixed;
+    background-color: crimson; 
+    
+    .image{
+        background-color: rgb(255, 255, 255); 
+    }
+}
 
 /*-------------------*/
 

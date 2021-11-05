@@ -10,18 +10,16 @@ export class RelayOnComponent implements OnInit {
   relayOn = [
     {
       icon: 'sl-icon-target text-info-gradiant',
-      field: 'Retargeting Market',
-      fieldText: 'You can relay on our amazing features list and also our customer services will be great experience.'
+      field: '¿Quienes somos?',
+      fieldText: 'La descripcion de una campaña es la introduccion a tu negocio. Ademas de comunicar los productos y servicios que vendes, debe transmitir la razon por la cual los vendes y los valores de tu empresa.'
     },
     {
       icon: 'sl-icon-mouse text-info-gradiant',
-      field: 'Fruitful Results',
-      fieldText: 'You can relay on our amazing features list and also our customer services will be great experience.'
+      field: 'Ofrecemos',
     },
     {
       icon: 'sl-icon-earphones-alt text-info-gradiant',
-      field: 'Instant Solutions',
-      fieldText: 'You can relay on our amazing features list and also our customer services will be great experience.'
+      field: 'Marcas',
     }
   ];
 

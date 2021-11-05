@@ -1,17 +1,38 @@
-<div class="row m-t-40">
+<div class="d-flex flex-column text-center">
     <!-- Column -->
-    <div class="col-md-4 wrap-feature1-box" *ngFor='let relay of relayOn'>
+    <div class="wrap-feature1-box">
         <div class="card card-shadow" data-aos="fade-right" data-aos-duration="1200">
-            <div class="card-body p-40 text-center">
-                <div class="icon-space display-5">
-                    <i [class]="relay.icon"></i>
+            <div class="card-body p-40 text-center d-flex flex-row">
+                <div class="col- icon-space display-5">
+                    <i class="sl-icon-user text-info-gradiant m-t-20"></i>
                 </div>
-                <h5 class="font-medium">{{relay.field}}</h5>
-                <p class="m-t-20">
-                    {{relay.fieldText}}
+                <h5 class="col- font-medium m-t-20">¿Quienes Somos?</h5>
+                <p class="col- m-t-20">
+                    La descripcion de una campaña es la introduccion a tu negocio. Ademas de comunicar los productos y servicios que vendes, debe transmitir la razon por la cual los vendes y los valores de tu empresa.
                 </p>
             </div>
         </div>
     </div>
-
+    <div class="wrap-feature1-box">
+        <div class="card card-shadow" data-aos="fade-right" data-aos-duration="1200">
+            <div class="card-body p-40 text-center d-flex justify-content-arounf">
+                <div class="col- icon-space display-5">
+                    <i class="sl-icon-phone text-info-gradiant"></i>
+                </div>
+                <h5 class="col- font-medium m-t-20">Ofrecemos</h5>
+                
+            </div>
+        </div>
+    </div>
+    <div class="wrap-feature1-box">
+        <div class="card card-shadow" data-aos="fade-right" data-aos-duration="1200">
+            <div class="card-body p-40 text-center d-flex flex-row">
+                <div class="col- icon-space display-5">
+                    <i class="sl-icon-map text-info-gradiant"></i>
+                </div>
+                <h5 class="col- font-medium m-t-20">Marcas</h5>
+                <img class = "col- img-top" src = "assets/images/landingpage/marcas.jpg" alt="marcas">
+            </div>
+        </div>
+    </div>
 </div>

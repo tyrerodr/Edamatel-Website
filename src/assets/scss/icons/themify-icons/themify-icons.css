@@ -451,6 +451,7 @@
 }
 .ti-menu:before {
 	content: "\e68e";
+	color: black;
 }
 .ti-menu-alt:before {
 	content: "\e68f";
