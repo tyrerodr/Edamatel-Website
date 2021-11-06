@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { BlogComponent } from './blog/blog.component';
 import { AboutComponent } from './about/about.component';
+import { ComputoComponent } from './computo/computo.component';
 import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
 
 
@@ -17,6 +18,7 @@ const routes: Routes = [
       { path: '', component: BlogComponent },
       { path: 'blogDetail/:id', component: BlogDetailComponent },
       { path: 'about', component: AboutComponent },
+      { path: 'computo', component: ComputoComponent },
     ]
   }
 ];
