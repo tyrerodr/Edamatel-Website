@@ -10,6 +10,7 @@ import { AppsComponent } from './apps.component';
 import { BlogComponent } from './blog/blog.component';
 import { AboutComponent } from './about/about.component';
 import { ComputoComponent } from './computo/computo.component';
+import { ServiciosComponent } from './servicios/servicios.component';
 import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
 
 import { ServiceblogService } from './blog/blog-service.service';
@@ -28,6 +29,7 @@ import { FooterComponent } from './shared/footer/footer.component';
     BlogComponent,
     AboutComponent,
     ComputoComponent,
+    ServiciosComponent,
     BlogDetailComponent,
     RelayOnComponent,
     TopContentComponent,
