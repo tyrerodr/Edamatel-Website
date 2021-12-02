@@ -406,7 +406,7 @@ Blog homepage 2
 *******************/
 
 .blog-home2 {
-  [class*="col-"] {
+  [class*="fcol-"] {
     transition: 0.2s ease-in;
     &:hover {
       transform: translateY(-10px);
