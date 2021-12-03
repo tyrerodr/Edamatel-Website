@@ -1,6 +1,7 @@
 
+
 let peticion = () => {
-      fetch("src\app\apps\marcas\marcas.json")
+      fetch("./listamarcas.json")
         .then(response => response.json())
         .then(data => {
   
@@ -10,13 +11,13 @@ let peticion = () => {
             let image = item.image;
     
             let plantilla = `
-            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6  js_brand_pms thumbnail">
-            <div class="brands ">
-            <img alt="{{nombre}}" class="{{image}}">
-            </div>
-            <div class="text-center text-brand text-black">{{nombre}}</div>
-            <span style="color: white;height: 30px;display: flex;"></span>
-            </div>`
+            <div class="single-products">
+            <div class="productinfo text-center">
+            <img class="h-25 w-25" src="{{image}}"  alt="" />
+            <h2>{{nombre}}</h2>
+            <p>{{nombre}}</p>
+          </div>
+        </div>`
     
             plantilla = plantilla.replaceAll("{{nombre}}",nombre); 
             plantilla = plantilla.replaceAll("{{image}}",image);
