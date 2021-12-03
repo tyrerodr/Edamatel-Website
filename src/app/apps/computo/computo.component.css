@@ -1,23 +1,21 @@
 .features_items{
-    display: grid;
-	grid-template-columns: 30% 30% 30%;
-    
+  display: grid;
+grid-template-columns: 30% 30% 30%;
+  
 }
 .product-image-wrapper{
 border: 1px solid crimson;
-  height: 20rem;
-  width: 15rem;
-  margin: 0.5rem;
+height: 20rem;
+width: 15rem;
+margin: 0.5rem;
 }
 
 img {
-    max-width: 10rem;
-    max-height: 10rem;
+  max-width: 10rem;
+  max-height: 10rem;
 }
- .brands_products{
-    border: 1px solid crimson;
-    height: 100%;
- }
- .banner-innerpage{
-   margin-block-end: 1rem;
- }
+
+.titleproducto{
+padding-top: 25px;
+padding-bottom: 40x;
+}
