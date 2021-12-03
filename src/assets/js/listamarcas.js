@@ -1,3 +1,4 @@
+
 let peticion = () => {
       fetch("src\app\apps\marcas\marcas.json")
         .then(response => response.json())
@@ -32,5 +33,3 @@ document.addEventListener("DOMContentLoaded", function (event) {
       peticion();
     })
   
-
-    

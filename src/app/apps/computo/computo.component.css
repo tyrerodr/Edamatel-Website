@@ -14,8 +14,7 @@ img {
     max-width: 10rem;
     max-height: 10rem;
 }
-
-.titleproducto{
-  padding-top: 25px;
-  padding-bottom: 40x;
-}
+ .brands_products{
+    border: 1px solid crimson;
+    height: 100%;
+ }
