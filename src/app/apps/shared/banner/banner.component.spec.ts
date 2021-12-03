@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { updateShorthandPropertyAssignment } from 'typescript';
 
 import { BannerComponent } from './banner.component';
 

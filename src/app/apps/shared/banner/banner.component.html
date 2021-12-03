@@ -7,10 +7,11 @@
         </div>  
         <div class="row mr-3">
             <div class="round-social light">
-              <a href="https://www.facebook.com/edamatel.empresa" class="link"><i class="fa fa-facebook"></i></a>
-              <a routerLink="" class="link"><i class="fa fa-google-plus"></i></a>
-              <a href="https://www.youtube.com/user/edatelsa" class="link"><i class="fa fa-youtube-play"></i></a>
-              <a href="https://www.instagram.com/edamatel_telecomunicaciones/" class="link"><i class="fa fa-instagram"></i></a>
+              <a routerLink="#" class="link"><i class="fa fa-facebook"></i></a>
+              <a routerLink="#" class="link"><i class="fa fa-twitter"></i></a>
+              <a routerLink="#" class="link"><i class="fa fa-google-plus"></i></a>
+              <a routerLink="#" class="link"><i class="fa fa-youtube-play"></i></a>
+              <a routerLink="#" class="link"><i class="fa fa-instagram"></i></a>
             </div>
         </div>
     </div>
@@ -27,16 +28,93 @@
 
         <div class="row list-unstyled mr-3">        
                 <li class="nav-item ">
-                    <a class="btn-top btn-danger-gradiant font-14" target="_blank" href="">
+                    <a id= "login_btn" onclick="document.getElementById('id_login').style.display='block'" class="btn-top btn-danger-gradiant font-14" >
                         Ingresar
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="btn-top btn-danger-gradiant font-14" target="_blank" href="">
+                    <a id = "registrar_btn" onclick="document.getElementById('id_registrar').style.display='block'" class="btn-top btn-danger-gradiant font-14">
                         Hacerse Cliente
                     </a>
                 </li>
-            
         </div>
     </div>    
-</div>  
+</div>
+
+<div id="id_login" class="modal">
+    <span onclick="document.getElementById('id_login').style.display='none'"
+    class="close" title="Close Modal">&times;</span>
+
+    <!-- Modal Content -->
+    <form id = "login_form" (ngSubmit)="onSubmit_Login(user_name.value, pass.value)" class="modal-content animate" action="/action_page.php">
+      <div class="imgcontainer">
+        <img src="assets/images/logos/logo_login.png" alt="Avatar" class="avatar">
+        <h1>Iniciar sesión</h1>
+      </div>
+
+      <div class="container">
+        <label for="uname"><b>Usuario</b></label>
+        <input #user_name id= "login_username" type="text" placeholder="Ingrese su usuario" name="uname" required>
+
+        <label for="psw"><b>Contraseña</b></label>
+        <input #pass id = "login_password" type="password" placeholder="Ingrese su contraseña" name="psw" required>
+
+        <button id="login_submit_btn" type="submit">Iniciar sesión</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Recordarme
+        </label>
+      </div>
+
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('id_login').style.display='none'" class="cancelbtn">Cancelar</button>
+        <span class="psw">Olvidaste tu <a href="#">contraseña?</a></span>
+      </div>
+    </form>
+</div>
+
+<div id="id_registrar" class="modal">
+    <span onclick="document.getElementById('id_registrar').style.display='none'"
+    class="close" title="Close Modal">&times;</span>
+
+    <!-- Modal Content -->
+    <form id= "login_form" class="modal-content animate" action="/action_page.php">
+      <div class="imgcontainer">
+        <img src="assets/images/logos/logo_registro.png" alt="Avatar" class="avatar">
+        <h1>Registrarme como cliente</h1>
+      </div>
+
+      <div class="container">
+
+        <label for="mail"><b>Correo electrónico</b></label>
+        <input type="text" placeholder="Ingrese su correo electrónico" name="uname" required>
+        
+        <label for="uname"><b>Usuario</b></label>
+        <input type="text" placeholder="Ingrese su nuevo usuario" name="uname" required>
+
+        <label for="psw"><b>Contraseña</b></label>
+        <input type="password" placeholder="Ingrese su nueva contraseña" name="psw" required>
+
+        <label for="r_psw"><b>Repetir contraseña</b></label>
+        <input type="password" placeholder="Vuelva a ingresar la contraseña" name="psw" required>
+
+        <label for="name"><b>Nombre</b></label>
+        <input type="text" placeholder="Ingrese su nombre" name="uname" required>
+        
+        <label for="lastname"><b>Apellido</b></label>
+        <input type="text" placeholder="Ingrese su apellido" name="uname" required>
+
+        <label for="udate"><b>Fecha de nacimiento</b></label>
+        <input type="date" placeholder="Ingrese su fecha de nacimiento"  name= "uname" required>
+
+        <button id="submit_registrar_btn" type="submit">Iniciar sesión</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Recordarme
+        </label>
+      </div>
+
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('id_registrar').style.display='none'" class="cancelbtn">Cancelar</button>
+        <span class="psw">Olvidaste tu <a href="#">contraseña?</a></span>
+      </div>
+    </form>
+</div>
