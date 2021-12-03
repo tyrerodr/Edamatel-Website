@@ -1,8 +1,4 @@
-#list{
-    display: grid;
-    grid-template-columns: 30% 30% 30% 30%; 
-    width: 1187px;
-}
+
 
 .single-products{
     padding-bottom: 20%;
