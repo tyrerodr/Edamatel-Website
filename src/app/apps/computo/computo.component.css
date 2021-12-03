@@ -19,3 +19,11 @@ img {
 padding-top: 25px;
 padding-bottom: 40x;
 }
+
+.btn {
+  color: #000000;
+}
+
+li > a{
+  color: #5297d3;
+}
