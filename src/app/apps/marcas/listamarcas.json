@@ -1,0 +1,72 @@
+[
+  {
+    "id": "001",
+    "nombre": "A-data",
+    "img": "https://store.intcomex.com/es-XEC/Image/Brand?p=a-data_logo_Small.png&sp=pi"
+  },
+  {
+    "id": "002",
+    "nombre": "Altec Lasing",
+    "img": "https://store.intcomex.com/es-XEC/Image/Brand?p=AltecLansing.jpg&sp=pi"
+  },
+  {
+    "id": "003",
+    "nombre": "Case-Mate",
+    "img": "https://store.intcomex.com/es-XEC/Image/Brand?p=casemate.jpg&sp=pi"
+  },
+  {
+    "id": "004",
+    "nombre": "Cnet",
+    "img": "https://store.intcomex.com/es-XEC/Image/Brand?p=CNet.jpg&sp=pi"
+  },
+  {
+    "id": "005",
+    "nombre": "Epson",
+    "img": "https://store.intcomex.com/es-XEC/Image/Brand?p=epson.jpg&sp=pi"
+  },
+  {
+    "id": "006",
+    "nombre": "Hikvision",
+    "img": "https://store.intcomex.com/es-XEC/Image/Brand?p=Hikvision-Small.png&sp=pi"
+  },
+  {
+    "id": "007",
+    "nombre": "Kingston",
+    "img": "https://store.intcomex.com/es-XEC/Image/Brand?p=kingstonSmall.png&sp=pi"
+  },
+  {
+    "id": "008",
+    "nombre": "Nexxt Solutions Infrastructure",
+    "img": "https://store.intcomex.com/es-XEC/Image/Brand?p=Nexxt_Infrastructure_small.png&sp=pi"
+  },
+  {
+    "id": "009",
+    "nombre": "Philips",
+    "img": "https://store.intcomex.com/es-XEC/Image/Brand?p=Philips%20Logo.jpg&sp=pi"
+  },
+  {
+    "id": "010",
+    "nombre": "Pinnacle",
+    "img": "https://store.intcomex.com/es-XEC/Image/Brand?p=Pinnacle%20Logo.jpg&sp=pi"
+  },
+  {
+    "id": "011",
+    "nombre": "Prima Electro",
+    "img": "https://store.intcomex.com/es-XEC/Image/Brand?p=PRIMA%20ELECTRONICORP.png&sp=pi"
+  },
+  {
+    "id": "012",
+    "nombre": "Techzone",
+    "img": "https://store.intcomex.com/es-XEC/Image/Brand?p=techzone.jpg&sp=pi"
+  },
+  {
+    "id": "013",
+    "nombre": "Xtech",
+    "img": "https://store.intcomex.com/es-XEC/Image/Brand?p=Logo_Xtech.png&sp=pi"
+  },
+  {
+    "id": "014",
+    "nombre": "Zagg",
+    "img": "https://store.intcomex.com/es-XEC/Image/Brand?p=zagg2.png&sp=pi"
+  }
+]

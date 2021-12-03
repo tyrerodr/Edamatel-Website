@@ -1138,6 +1138,23 @@ Buttons
         
     }
 }
+
+.btn-crimson,
+.btn-crimson.disabled {
+    background: $crimson;
+    border: 1px solid $crimson;
+    
+    transition: 0.2s ease-in;
+    &:hover{
+        background: $crimson-dark;
+        
+        border: 1px solid $crimson-dark;
+    }
+    &.active, &:active, &:focus{
+        background: $crimson-dark;
+        
+    }
+}
 .btn-inverse,
 .btn-inverse.disabled {
     background: $inverse;
