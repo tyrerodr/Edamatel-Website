@@ -178,6 +178,40 @@ File: scss
             display: block;
         }
     }
+
+   #lista-bar{
+    width: 100%!important;
+
+   } 
+    .nav-item > a {
+        font-size: 15;    
+        padding: 0px 10px;
+    }
+
+    iframe{
+        width: auto;
+        height: auto;
+    }
+    .card-body{
+        padding: 20px;
+        margin: 20px;
+    }
+
+    #featuresSlider{
+        margin: 10%;
+        padding-left: 0%;
+    }
+    #espacio{
+        margin-right: 40px;
+    }
+    #espacio2{
+        margin-right: 40px;
+    }
+
+    .btn-crimson{
+        margin-left: 25%;
+    }
+
     /*This is for the feature 12*/
     .wrap-feature-12 .uneven-box{
         margin-top: 0px;
