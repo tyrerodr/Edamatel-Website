@@ -23,12 +23,12 @@ export class BannerComponent implements OnInit {
     if (document.cookie != "") {
       console.log(document.cookie);
       document.getElementById('botonesTipoCuenta')!.innerHTML = `<li class="nav-item ">
-                  <a id= "perfilCliente" href="/servicios" class="btn-top btn-danger-gradiant font-14" >
+                  <a id= "perfilCliente" href="/perfil" class="btn-top btn-danger-gradiant font-14" >
                     ${ this.getCookie("username")}
                   </a>
               </li>
               <li class="nav-item ">
-                  <a id= "logout" class="btn-top btn-danger-gradiant font-14" >
+                  <a id= "logout" href="/" class="btn-top btn-danger-gradiant font-14" >
                    logout
                   </a>
               </li>`;
@@ -71,12 +71,12 @@ export class BannerComponent implements OnInit {
                 alert("Seion iniciada");
                 document.cookie = "username=" + clientes[i]["name"];
                 document.getElementById('botonesTipoCuenta')!.innerHTML = `<li class="nav-item ">
-                  <a id= "perfilCliente" href="/servicios" class="btn-top btn-danger-gradiant font-14" >
+                  <a id= "perfilCliente" href="/perfil" class="btn-top btn-danger-gradiant font-14" >
                     ${clientes[i]["name"]}
                   </a>
               </li>
               <li class="nav-item ">
-                  <a id= "logout" class="btn-top btn-danger-gradiant font-14" >
+                  <a id= "logout" href="/" class="btn-top btn-danger-gradiant font-14" >
                    logout
                   </a>
               </li>`;
