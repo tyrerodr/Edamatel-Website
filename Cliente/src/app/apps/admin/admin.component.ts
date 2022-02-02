@@ -21,7 +21,7 @@ export class AdminComponent implements OnInit {
     const nombreValue = document.getElementById('nombreValue') as HTMLFormElement;
     const precioValue = document.getElementById('precioValue') as HTMLFormElement;
     const stockValue = document.getElementById('stockValue') as HTMLFormElement;
-    const tipoValue = document.getElementById('tipoValue') as HTMLFormElement;
+    const linkValue = document.getElementById('linkValue') as HTMLFormElement;
     const categoriaValue = document.getElementById('categoriaValue') as HTMLFormElement;
     const checkValue = document.getElementById('estadoValue');
     const botonAct = document.querySelector('.btn.btn-primary');
@@ -39,8 +39,9 @@ export class AdminComponent implements OnInit {
       console.log(target.id);
       
       if (target.id == "1") {
-        console.log("adsf");
-        contenido!.innerHTML = `    <div class="container">
+        
+        
+        contenido!.innerHTML = `          <div class="container"  >
         <div class="row flex-lg-nowrap">
           <div class="col">
             <div class="row flex-lg-nowrap">
@@ -55,16 +56,11 @@ export class AdminComponent implements OnInit {
                         <table class="table table-bordered">
                           <thead>
                             <tr>
-                              <th class="align-top">
-                                <div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0">
-                                  <input type="checkbox" class="custom-control-input" id="all-items">
-                                  <label class="custom-control-label" for="all-items"></label>
-                                </div>
-                              </th>
+                             
                               <th class="max-width">Nombre</th>
                               <th class="sortable">Precio</th>
                               <th>Stock </th>
-                              <th>Tipo </th>
+                              <th>link </th>
                               <th>Categoria </th>
                               <th>Acciones</th>
                             </tr>
@@ -95,7 +91,7 @@ export class AdminComponent implements OnInit {
               </div>
             </div>
             <!-- User Form Modal -->
-            <div class="modal fade show" role="dialog" tabindex="-1" id="user-form-modal">
+            <div class="modal" role="dialog" tabindex="-1" id="user-form-modal">
               <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -115,13 +111,13 @@ export class AdminComponent implements OnInit {
                               <div class="col">
                                 <div class="form-group">
                                   <label>Nombre</label>
-                                  <input class="form-control" id="nombreValue" type="text" name="name" placeholder="John" value="John">
+                                  <input class="form-control" id="nombreValue" type="text" name="name" >
                                 </div>
                               </div>
                               <div class="col">
                                 <div class="form-group">
-                                  <label>Apellido</label>
-                                  <input class="form-control" id="precioValue" type="text" name="lastname" placeholder="Smith" value="Smith">
+                                  <label>Categoria</label>
+                                  <input class="form-control" id="categoriaValue" type="text" name="lastname" >
                                 </div>
                               </div>
                             </div>
@@ -135,20 +131,16 @@ export class AdminComponent implements OnInit {
                             <div class="row">
                               <div class="col">
                                 <div class="form-group">
-                                  <label>Fecha de nacimiento</label>
-                                  <input class="form-control" id="stockValue" type="date" name="date">
+                                  <label>Stock</label>
+                                  <input class="form-control" id="stockValue" type="text" name="lastname" >
                                 </div>
                               </div>
                               
                               <!-- -->
                               <div class="col">
-                                <label>Estado</label>
-                                <div class="custom-controls-stacked px-2">
-                                  <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="estadoValue" checked="False" >
-                                    <label class="custom-control-label" for="estadoValue">Activo</label>
-                                  </div>
-                                 
+                                <div class="form-group">
+                                  <label>Link de la imagen</label>
+                                  <input class="form-control" id="linkValue" type="text" name="lastname" >
                                 </div>
                               </div>
                               <!-- -->
@@ -157,8 +149,18 @@ export class AdminComponent implements OnInit {
                         </div>
                         <div class="row">
                           <div class="col">
+                            
+                              <div class="row">
+                                  <div class="col">
+                                    <div class="form-group">
+                                      <label>Precio</label>
+                                      <input class="form-control" id="precioValue" type="text" name="lastname" >
+                                    </div>
+                                  </div>
+                                
+
                             <div class="col d-flex justify-content-end">
-                              <button class="btn btn-primary" type="submit" id="addoactb">a</button>
+                              <button class="btn btn-primary" type="submit" id="addoactb">a</button></div>
                             </div>
                           </div>
                         </div>
@@ -173,6 +175,7 @@ export class AdminComponent implements OnInit {
         </div>
       </div>`
       this.cargarArticulos(url,listaproductos!);
+      location.reload();
       }
       if (target.id == "2") {
         console.log("adsdff");
@@ -240,12 +243,12 @@ export class AdminComponent implements OnInit {
   nombreValue.value='';
   precioValue.value='';
   stockValue.value='';
-  tipoValue.value='';
+  linkValue.value='';
   categoriaValue.value='';
   })
   addClientes!.addEventListener('submit',(e)=>{
     if(cambiarBoton!.textContent=='Guardar'){
-      if(nombreValue.value==''||precioValue.value==''||stockValue.value==''){
+      if(nombreValue.value==''||precioValue.value==''||stockValue.value==''||categoriaValue.value==''||linkValue.value==''){
         window.alert("nosepuede");
       }
       else{
@@ -259,12 +262,15 @@ export class AdminComponent implements OnInit {
         
         body: JSON.stringify({
           nombre: nombreValue.value,
-          apellido: precioValue.value,
-          fechaNacimiento: stockValue.value
+          precio: precioValue.value,
+          stock: stockValue.value,
+          categoria: categoriaValue.value,
+          link: linkValue.value,
+          id_administrador: 1
         })
         
       })
-      .then(res => res.json())
+      .then(res => res.json()).then(() => location.reload());
       /*.then(document.getElementById('clientes').innerHTML =null)
       .then(() => location.reload());history.replaceState({}, null, "");*/
   }}
@@ -273,14 +279,14 @@ export class AdminComponent implements OnInit {
 
 
     //borrar y actualizar
-    /*listaproductos!.addEventListener('click',(e)=>{
+    listaproductos!.addEventListener('click',(e)=>{
       let target= e.target as HTMLTableElement
 	let botonEditar =target.id == 'editar';
 	let botonBorrar = target.id == 'borrar';
 	let botonBorrar2 = target.id == 'borrar2';
-	let id;
+	let id="";
 	if(botonBorrar ){
-		id=target.parentElement!.dataset.id;
+		id=target.parentElement!.dataset.id!;
 		fetch(`${url}/${id}`,{
 			method: 'DELETE',
 		})
@@ -288,7 +294,7 @@ export class AdminComponent implements OnInit {
 		.then(() => location.reload());
 	}
 	if( botonBorrar2){
-		id=target.parentElement!.parentElement!.dataset.id;
+		id=target.parentElement!.parentElement!.dataset.id!;
 		fetch(`${url}/${id}`,{
 			method: 'DELETE',
 		})
@@ -303,25 +309,28 @@ export class AdminComponent implements OnInit {
 		
 
 
-		id=target.parentElement!.dataset.id;
+    id=target.parentElement!.dataset.id!;
+    console.log("id actualizar");
+    console.log(id);
 		const parent = target.parentElement!.parentElement!.parentElement;
 		
 		let nom = parent!.querySelector('.nom')!.textContent;
-		let ap = parent!.querySelector('.ap')!.textContent;
-		let fec = parent!.querySelector('.fec')!.textContent;
-		let act = parent!.querySelector('#act')!.className;
-	
-	
-		nombreValue.value = nom;
-		apellidoValue.value = ap;
-		fechaValue.value = fec;
-		checkValue.checked = bolonof;
+		let prec = parent!.querySelector('.prec')!.textContent;
+		let stock = parent!.querySelector('.stock')!.textContent;
+		let link = parent!.querySelector('.link')! as HTMLImageElement;
+    let cat = parent!.querySelector('.cat')!.textContent;
 
-		console.log(onof);
+	 
+		nombreValue.value = nom;
+		precioValue.value = prec;
+		stockValue.value = stock;
+		categoriaValue.value = cat;
+    linkValue.value = link.src;
+
 	}
 	botonAct!.addEventListener('click',() =>{
 		if(cambiarBoton!.textContent=='Actualizar'){
-			if(nombreValue.value==''||apellidoValue.value==''||fechaValue.value==''){
+			if(nombreValue.value==''||precioValue.value==''||stockValue.value==''||categoriaValue.value==''||linkValue.value==''){
 				window.alert("nosepuede");
 			}
 			else{
@@ -335,19 +344,21 @@ export class AdminComponent implements OnInit {
 					
 					body: JSON.stringify({
 						nombre: nombreValue.value,
-						apellido: apellidoValue.value,
-						fechaNacimiento: fechaValue.value,
-						estado: estadoValue
+						precio: precioValue.value,
+						stock: stockValue.value,
+            categoria: categoriaValue.value,
+            link: linkValue.value,
+            id_administrador: 1
 					})
 				})
 				.then(res=> res.json())
-				.then(() => location.reload());history.replaceState({}, null, "");
+				.then(() => location.reload());
 			}
 		}
 	})
 
 
-})*/
+})
    
 
   }
@@ -364,18 +375,19 @@ export class AdminComponent implements OnInit {
                     <td class="text-nowrap align-middle"><span class="nom">${articulo.nombre}</span></td>
                     <td class="text-nowrap align-middle"><span class="prec">${articulo.precio}</span></td>
                     <td class="text-nowrap align-middle"><span class="stock">${articulo.stock}</span></td>
-                    <td class="text-nowrap align-middle"><span class="link">${articulo.link}</span></td>
+                    <td class="text-nowrap align-middle"><img class="link" src=${articulo.link} alt="HTML5 Icon" width="128" height="128"></td>
                     <td class="text-nowrap align-middle"><span class="cat">${articulo.categoria}</span></td>
                     <td class="text-center align-middle">
                       <div class="btn-group align-top" data-id=${articulo.id_articulo}>
-                        <button class="btn btn-sm btn-outline-secondary badge" type="button" data-toggle="modal" id="editar" data-target="#user-form-modal">Edit</button>
+                        <button class="btn btn-sm btn-outline-secondary badge" type="button" data-toggle="modal" id="editar" onclick="document.getElementById('user-form-modal').style.display='block'">Edit</button>
                         <button class="btn btn-sm btn-outline-secondary badge" id="borrar" type="button" ><i class="fa fa-trash" id="borrar2"></i></button>
                       </div>
                     </td>
                   </tr>
         `
         
-        listaproductos.innerHTML += plantilla
+        listaproductos.innerHTML += plantilla;
+        console.log("xd");
   
       }
    
