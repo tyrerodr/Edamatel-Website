@@ -18,7 +18,7 @@
 
 <section>
       <div class="d-flex flex-row">
-        <div id="lista-bar"class="p-2 bd-highlight bg-dark w-50 ">
+        <div id="lista-bar"class="p-1 bd-highlight bg-dark w-20 width:100px ">
           <div class="left-sidebar p-10">
             <div class="brands_products"><!--brands_products-->
               <h5 class="text-light">Accesorios para computadora</h5>
@@ -44,7 +44,14 @@
         </div>
   
         
-        <div class="Producto p-2 bd-highlight d-flex flex-row flex-column padding-right">  
+        <div class="Producto p-2 bd-highlight w-100 d-flex flex-row flex-column " > 
+            <div class="d-flex flex-row-reverse" id="botonesTipoCuenta">        
+                
+                    <a id= "login_btn" onclick="document.getElementById('carrito').style.display='block'" class="btn-top btn-danger-gradiant font-14" >
+                        <i class="fa fa-shopping-cart"></i> Carrito
+                    </a>
+                
+        </div> 
             <h2 class="titleproducto text-center bd-highlight ">Productos</h2>
             
             <div class="input-group rounded pb-5 pt-2">
@@ -56,148 +63,9 @@
             </div>
             
 
-            <div class="features_items"><!--features_items-->
+            <div class="features_items justify-content-center" id="productos"><!--features_items-->
 
-            <div class="p-2 bd-highlight">
-                <div class="single-products">
-                  <div class="productinfo text-center">
-                    <img class="h-25 w-25" src="assets\images\product\cable1.jpg"  alt="" />
-                    <h2>Xtech</h2>
-                    <p>Xtech - VGA cable - VGA (Male) Spliter</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>                  </div>
-                </div>
-            </div>
-
-            <div class="p-2 bd-highlight">
-                <div class="single-products">
-                  <div class="productinfo text-center">
-                    <img class="h-25 w-25" src="assets\images\product\cable2.jpg"  alt="" />
-                    <h2>Xtech</h2>
-                    <p>Xtech - VGA cable - VGA (Male) Spliter</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>                  </div>  
-              </div>
-            </div>
-
-            <div class="p-2 bd-highlight">
-                <div class="single-products">
-                  <div class="productinfo text-center">
-                    <img class="h-25 w-25" src="assets\images\product\Notebook1.jpg"  alt="" />
-                    <h2>HP</h2>
-                    <p>HP - Notebook - 15" - AMD Ryzen 3 4300U - 8 GB - 256 GB - Windows 10 Home - 1-year warranty</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>                  </div>               
-              </div>
-            </div>
-
-            <div class="p-2 bd-highlight">
-                <div class="single-products">
-                  <div class="productinfo text-center">
-                    <img class="h-25 w-25" src="assets\images\product\pc1.jpg"  alt="" />
-                    <h2>HP</h2>
-                    <p>HP - AIO 205 G4 - Actualizable a Windows 11 - 21.5" HD no Touch - AMD Athlon Silver 2.3 a 3.2Ghz 2Core</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>                  </div>                                             
-              </div>
-            </div>    
-            
-            <div class="p-2 bd-highlight">
-              <div class="single-products">
-                <div class="productinfo text-center">
-                  <img class="h-25 w-25" src="assets\images\product\pc1.jpg"  alt="" />
-                  <h2>HP</h2>
-                  <p>HP - AIO 205 G4 - Actualizable a Windows 11 - 21.5" HD no Touch - AMD Athlon Silver 2.3 a 3.2Ghz 2Core</p>
-                  <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>                </div>                                             
-            </div>
-          </div>   
-
-          <div class="p-2 bd-highlight">
-            <div class="single-products">
-              <div class="productinfo text-center">
-                <img class="h-25 w-25" src="assets\images\product\servidor1.png"  alt="" />
-                <h2>HPE</h2>
-                <p>HPE ProLiant DL580 Gen9 High Performance - Servidor - se puede montar en bastidor - 4U - 4 vías</p>
-                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-              </div>                                
-            </div>
-          </div>           
- 
-
-
-          <div class="p-2 bd-highlight">
-            <div class="single-products">
-              <div class="productinfo text-center">
-                <img class="h-25 w-25" src="assets\images\product\mouse1.jpg"  alt="" />
-                <h2>HP</h2>
-                <p>HP - Mouse - Wireless - Silver - 200</p>
-                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-              </div>                                
-            </div>
-          </div>                 
-
-          <div class="p-2 bd-highlight">
-            <div class="single-products">
-              <div class="productinfo text-center">
-                <img class="h-25 w-25" src="assets\images\product\mouse2.jpg"  alt="" />
-                <h2>HP</h2>
-                <p>HP - Mouse - Wireless - Silver - 200</p>
-                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-              </div>                                
-            </div>  
-          </div>               
-
-          <div class="p-2 bd-highlight">
-            <div class="single-products">
-              <div class="productinfo text-center">
-                <img class="h-25 w-25" src="assets\images\product\Tablets1.jpg"  alt="" />
-                <h2>HP</h2>
-                <p>Hewlett-Packard - HP Slate 2 Tablet PC Atom 1.5Ghz 2GB/64 GB 8.9"</p>
-                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-              </div>                                
-            </div>
-          </div>                 
-
-          <div class="p-2 bd-highlight">
-            <div class="single-products">
-              <div class="productinfo text-center">
-                <img class="h-25 w-25" src="assets\images\product\Tablets2.jpg"  alt="" />
-                <h2>HP</h2>
-                <p>AOC - AOC 9" MW0922-GC Tablet G2.5 MultiTouch/Android 4.X/HDMI</p>
-                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-              </div>                                
-            </div>   
-          </div>              
-
-          <div class="p-2 bd-highlight">
-            <div class="single-products">
-              <div class="productinfo text-center">
-                <img class="h-25 w-25" src="assets\images\product\accesorio1.jpg"  alt="" />
-                <h2>HPE</h2>
-                <p>HPE - Kit de biseles para caja del sistema - para ProLiant ML350e Gen8, ML350p Gen8</p>
-                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-              </div>                                
-            </div>  
-          </div>               
-
-          <div class="p-2 bd-highlight">
-            <div class="single-products">
-              <div class="productinfo text-center">
-                <img class="h-25 w-25" src="assets\images\product\accesorio2.jpg"  alt="" />
-                <h2>HPE</h2>
-                <p>HPE - Kit de biseles para caja del sistema - para ProLiant ML350e Gen8, ML350p Gen8</p>
-                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-              </div>                                
-            </div>              
-          </div>   
-
-
-          <div class="p-2 bd-highlight">
-            <div class="single-products">
-              <div class="productinfo text-center">
-                <img class="h-25 w-25" src="assets\images\product\cable3.jpg"  alt="" />
-                <h2>Belkin</h2>
-                <p>Belkin Ultra-Slim Travel - Hub - 4 x USB 2.0 -</p>
-                <a href="#" class="btn btn-default add-to-cart text-black"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-              </div>                                
-            </div>     
-          </div>   
+           
 
 
           </div>    
@@ -205,6 +73,43 @@
 
           </div><!--features_items-->
         </div>
+
+        <div class="modal" role="dialog" tabindex="-1" id="carrito">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="addoact">Carrito</h5>
+                  <button type="button" class="close" onclick="document.getElementById('carrito').style.display='none'">
+                  <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <div class="e-table">
+                        <div class="table-responsive table-lg mt-3">
+                          <table class="table table-bordered">
+                            <thead>
+                              <tr>
+                               
+                                <th class="max-width">Nombre</th>
+                                <th>Imagen </th>
+                                <th class="sortable">Precio</th>
+                                <th>Cantidad </th>
+                               
+                                <th>Acciones</th>
+                              </tr>
+                            </thead>
+                            <tbody id="productos">
+                              
+                              
+                              
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                </div>
+              </div>
+            </div>
+          </div>
     
   </section>
 

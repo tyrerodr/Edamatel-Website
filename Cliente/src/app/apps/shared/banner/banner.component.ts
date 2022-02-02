@@ -72,7 +72,7 @@ export class BannerComponent implements OnInit {
                 alert("Seion iniciada");
                 document.cookie = "username=" + clientes[i]["name"];
                 document.getElementById('botonesTipoCuenta')!.innerHTML = `<li class="nav-item ">
-                  <a id= "perfilCliente" href="/admin" class="btn-top btn-danger-gradiant font-14" >
+                  <a id= "perfilCliente" href="/perfil" class="btn-top btn-danger-gradiant font-14" >
                     ${clientes[i]["name"]}
                   </a>
               </li>

@@ -27,6 +27,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(30),
       allowNull: true
     },
+    marca: {
+      type: DataTypes.STRING(30),
+      allowNull: true
+    },
     id_administrador: {
       type: DataTypes.INTEGER,
       allowNull: true,

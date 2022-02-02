@@ -22,6 +22,7 @@ export class AdminComponent implements OnInit {
     const precioValue = document.getElementById('precioValue') as HTMLFormElement;
     const stockValue = document.getElementById('stockValue') as HTMLFormElement;
     const linkValue = document.getElementById('linkValue') as HTMLFormElement;
+    const marcaValue = document.getElementById('marcaValue') as HTMLFormElement;
     const categoriaValue = document.getElementById('categoriaValue') as HTMLFormElement;
     const checkValue = document.getElementById('estadoValue');
     const botonAct = document.querySelector('.btn.btn-primary');
@@ -62,6 +63,7 @@ export class AdminComponent implements OnInit {
                               <th>Stock </th>
                               <th>link </th>
                               <th>Categoria </th>
+                              <th>Marca</th>
                               <th>Acciones</th>
                             </tr>
                           </thead>
@@ -156,14 +158,20 @@ export class AdminComponent implements OnInit {
                                       <label>Precio</label>
                                       <input class="form-control" id="precioValue" type="text" name="lastname" >
                                     </div>
+                                    
                                   </div>
-                                
-
+                                  <div class="col">
+                                      <div class="form-group">
+                                        <label>Marca</label>
+                                        <input class="form-control" id="marcaValue" type="text" name="lastname" >
+                                      </div>
+                                    </div>
+                                </div>
                             <div class="col d-flex justify-content-end">
                               <button class="btn btn-primary" type="submit" id="addoactb">a</button></div>
                             </div>
                           </div>
-                        </div>
+                        
                       </form>
                     </div>
                   </div>
@@ -244,11 +252,12 @@ export class AdminComponent implements OnInit {
   precioValue.value='';
   stockValue.value='';
   linkValue.value='';
+  marcaValue.value='';
   categoriaValue.value='';
   })
   addClientes!.addEventListener('submit',(e)=>{
     if(cambiarBoton!.textContent=='Guardar'){
-      if(nombreValue.value==''||precioValue.value==''||stockValue.value==''||categoriaValue.value==''||linkValue.value==''){
+      if(nombreValue.value==''||precioValue.value==''||stockValue.value==''||categoriaValue.value==''||linkValue.value==''||marcaValue.value==''){
         window.alert("nosepuede");
       }
       else{
@@ -266,6 +275,7 @@ export class AdminComponent implements OnInit {
           stock: stockValue.value,
           categoria: categoriaValue.value,
           link: linkValue.value,
+          marca: marcaValue.value,
           id_administrador: 1
         })
         
@@ -319,18 +329,19 @@ export class AdminComponent implements OnInit {
 		let stock = parent!.querySelector('.stock')!.textContent;
 		let link = parent!.querySelector('.link')! as HTMLImageElement;
     let cat = parent!.querySelector('.cat')!.textContent;
-
+    let marc = parent!.querySelector('.marc')!.textContent;
 	 
 		nombreValue.value = nom;
 		precioValue.value = prec;
 		stockValue.value = stock;
 		categoriaValue.value = cat;
     linkValue.value = link.src;
+    marcaValue.value = marc;
 
 	}
 	botonAct!.addEventListener('click',() =>{
 		if(cambiarBoton!.textContent=='Actualizar'){
-			if(nombreValue.value==''||precioValue.value==''||stockValue.value==''||categoriaValue.value==''||linkValue.value==''){
+			if(nombreValue.value==''||precioValue.value==''||stockValue.value==''||categoriaValue.value==''||linkValue.value==''||marcaValue.value==''){
 				window.alert("nosepuede");
 			}
 			else{
@@ -348,6 +359,7 @@ export class AdminComponent implements OnInit {
 						stock: stockValue.value,
             categoria: categoriaValue.value,
             link: linkValue.value,
+            marca: marcaValue.value,
             id_administrador: 1
 					})
 				})
@@ -377,6 +389,7 @@ export class AdminComponent implements OnInit {
                     <td class="text-nowrap align-middle"><span class="stock">${articulo.stock}</span></td>
                     <td class="text-nowrap align-middle"><img class="link" src=${articulo.link} alt="HTML5 Icon" width="128" height="128"></td>
                     <td class="text-nowrap align-middle"><span class="cat">${articulo.categoria}</span></td>
+                    <td class="text-nowrap align-middle"><span class="marc">${articulo.marca}</span></td>
                     <td class="text-center align-middle">
                       <div class="btn-group align-top" data-id=${articulo.id_articulo}>
                         <button class="btn btn-sm btn-outline-secondary badge" type="button" data-toggle="modal" id="editar" onclick="document.getElementById('user-form-modal').style.display='block'">Edit</button>

@@ -16,6 +16,8 @@ router.get('/usuarios', (req, res, next) => {
     .catch(error => res.status(400).send(error))
  });
 
+
+ //get articulos
  router.get('/articulos', (req, res, next) => { 
   models.articulo.findAll({ 
      
