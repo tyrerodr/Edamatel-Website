@@ -7,8 +7,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       primaryKey: true
     },
-    tipo: {
-      type: DataTypes.STRING(30),
+    link: {
+      type: DataTypes.STRING(200),
       allowNull: true
     },
     stock: {

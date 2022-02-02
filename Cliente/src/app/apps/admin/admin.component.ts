@@ -28,14 +28,16 @@ export class AdminComponent implements OnInit {
     const botonAdd = document.querySelector('.btn.btn-success.btn-block');
     const cambiarTitulo = document.getElementById('addoact');
     const cambiarBoton = document.getElementById('addoactb');
-    const url="urlapi";
+    const url="http://localhost:3001/api/articulos";
 
+
+    this.cargarArticulos(url,listaproductos!);
     listatipos!.addEventListener('click', (e) => {
-
+      
       const target = e.target as HTMLDListElement;
 
       console.log(target.id);
-
+      
       if (target.id == "1") {
         console.log("adsf");
         contenido!.innerHTML = `    <div class="container">
@@ -67,7 +69,7 @@ export class AdminComponent implements OnInit {
                               <th>Acciones</th>
                             </tr>
                           </thead>
-                          <tbody id="clientes">
+                          <tbody id="productos">
                             
                             
                             
@@ -170,6 +172,7 @@ export class AdminComponent implements OnInit {
           </div>
         </div>
       </div>`
+      this.cargarArticulos(url,listaproductos!);
       }
       if (target.id == "2") {
         console.log("adsdff");
@@ -181,7 +184,7 @@ export class AdminComponent implements OnInit {
                               <label class="input-group-text" for="inputGroupSelect01">Clientes</label>
                             </div>
                             <select class="custom-select" id="inputGroupSelect01">
-                              <option selected>Seleccione el cliente</option>
+                              <option selected>Seleccione el articulo</option>
                               
                             </select>
                           </div>
@@ -262,11 +265,10 @@ export class AdminComponent implements OnInit {
         
       })
       .then(res => res.json())
-      .then(document.getElementById('clientes').innerHTML =null)
-      .then(() => location.reload());history.replaceState({}, null, "");
+      /*.then(document.getElementById('clientes').innerHTML =null)
+      .then(() => location.reload());history.replaceState({}, null, "");*/
   }}
   })
-
 
 
 
@@ -351,5 +353,35 @@ export class AdminComponent implements OnInit {
   }
 
 
+  cargarArticulos = (url:string,listaproductos:HTMLElement) => {
+    fetch(url)
+    .then(texto => texto.json())
+    .then(articulos => {
+      for(let articulo of articulos) {
+    
+        let plantilla = `
+          <tr>        
+                    <td class="text-nowrap align-middle"><span class="nom">${articulo.nombre}</span></td>
+                    <td class="text-nowrap align-middle"><span class="prec">${articulo.precio}</span></td>
+                    <td class="text-nowrap align-middle"><span class="stock">${articulo.stock}</span></td>
+                    <td class="text-nowrap align-middle"><span class="link">${articulo.link}</span></td>
+                    <td class="text-nowrap align-middle"><span class="cat">${articulo.categoria}</span></td>
+                    <td class="text-center align-middle">
+                      <div class="btn-group align-top" data-id=${articulo.id_articulo}>
+                        <button class="btn btn-sm btn-outline-secondary badge" type="button" data-toggle="modal" id="editar" data-target="#user-form-modal">Edit</button>
+                        <button class="btn btn-sm btn-outline-secondary badge" id="borrar" type="button" ><i class="fa fa-trash" id="borrar2"></i></button>
+                      </div>
+                    </td>
+                  </tr>
+        `
+        
+        listaproductos.innerHTML += plantilla
+  
+      }
+   
+    })
+    
+  
+  }
 
 }

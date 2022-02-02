@@ -27,8 +27,12 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(30),
       allowNull: true
     },
+    direccion: {
+      type: DataTypes.STRING(200),
+      allowNull: true
+    },
     'contraseña': {
-      type: DataTypes.CHAR(10),
+      type: DataTypes.STRING(30),
       allowNull: true
     },
     telefono: {
