@@ -11,7 +11,7 @@ import { BlogComponent } from './blog/blog.component';
 import { AboutComponent } from './about/about.component';
 import { ComputoComponent } from './computo/computo.component';
 import { ServiciosComponent } from './servicios/servicios.component';
-import { PerfilComponent } from './perfil/perfil.component';
+import { ClienteComponent } from './cliente/cliente.component';
 import { AdminComponent } from './admin/admin.component';
 import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
 
@@ -33,7 +33,7 @@ import { MarcasComponent } from './marcas/marcas.component';
     AboutComponent,
     ComputoComponent,
     ServiciosComponent,
-    PerfilComponent,
+    ClienteComponent,
     AdminComponent,
     BlogDetailComponent,
     RelayOnComponent,

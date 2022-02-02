@@ -15,6 +15,9 @@
   #login_form{
     max-width: 600px;
   }
+  #login_register{
+    max-width: 600px;
+  }
   
   /* Modal Content/Box */
   .modal-content {

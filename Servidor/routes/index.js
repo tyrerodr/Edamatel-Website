@@ -5,10 +5,10 @@ const sequelize = require('../models/index.js').sequelize;
 var initModels = require("../models/init-models");
 var models = initModels(sequelize); 
 
-// get autores
+// get usuarios
 router.get('/usuarios', (req, res, next) => { 
-   models.usuarios.findAll({ 
-      attributes: { exclude: ["updatedAt"] }
+   models.usuario.findAll({ 
+    
     })
     .then(usuarios => {
        res.send(usuarios)
@@ -29,12 +29,17 @@ router.get('/usuarios', (req, res, next) => {
 });
 
 
+/* POST usuarios crear */
+router.post('/usuarios', (req, res, next) => {
+  const usuario= models.usuario.create(req.body);
+  res.json(usuario);
+});
+
+
 /* POST articulos crear */
 router.post('/articulos', (req, res, next) => {
   const cliente= models.articulo.create(req.body);
   res.json(cliente);
-  
-
 });
 
 /* PUT articulos  actu*/
