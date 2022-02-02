@@ -1,0 +1,355 @@
+import { Component, OnInit } from '@angular/core';
+import { ServiceblogService } from '../blog/blog-service.service';
+import { HttpClient } from '@angular/common/http';
+@Component({
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.css']
+})
+export class AdminComponent implements OnInit {
+
+
+  constructor(private http: HttpClient) {
+
+  }
+
+  ngOnInit(): void {
+    const listaproductos = document.getElementById('productos') ;
+    const contenido = document.getElementById('reporteoproducto') ;
+    var listatipos = document.getElementById('tipos');
+    const addClientes = document.querySelector('.form');
+    const nombreValue = document.getElementById('nombreValue') as HTMLFormElement;
+    const precioValue = document.getElementById('precioValue') as HTMLFormElement;
+    const stockValue = document.getElementById('stockValue') as HTMLFormElement;
+    const tipoValue = document.getElementById('tipoValue') as HTMLFormElement;
+    const categoriaValue = document.getElementById('categoriaValue') as HTMLFormElement;
+    const checkValue = document.getElementById('estadoValue');
+    const botonAct = document.querySelector('.btn.btn-primary');
+    const botonAdd = document.querySelector('.btn.btn-success.btn-block');
+    const cambiarTitulo = document.getElementById('addoact');
+    const cambiarBoton = document.getElementById('addoactb');
+    const url="urlapi";
+
+    listatipos!.addEventListener('click', (e) => {
+
+      const target = e.target as HTMLDListElement;
+
+      console.log(target.id);
+
+      if (target.id == "1") {
+        console.log("adsf");
+        contenido!.innerHTML = `    <div class="container">
+        <div class="row flex-lg-nowrap">
+          <div class="col">
+            <div class="row flex-lg-nowrap">
+              <div class="col mb-3">
+                <div class="e-panel card">
+                  <div class="card-body">
+                    <div class="card-title">
+                      <h6 class="mr-2"><span>Clientes</span></h6>
+                    </div>
+                    <div class="e-table">
+                      <div class="table-responsive table-lg mt-3">
+                        <table class="table table-bordered">
+                          <thead>
+                            <tr>
+                              <th class="align-top">
+                                <div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0">
+                                  <input type="checkbox" class="custom-control-input" id="all-items">
+                                  <label class="custom-control-label" for="all-items"></label>
+                                </div>
+                              </th>
+                              <th class="max-width">Nombre</th>
+                              <th class="sortable">Precio</th>
+                              <th>Stock </th>
+                              <th>Tipo </th>
+                              <th>Categoria </th>
+                              <th>Acciones</th>
+                            </tr>
+                          </thead>
+                          <tbody id="clientes">
+                            
+                            
+                            
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-3 mb-3">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="text-center px-xl-3">
+                      <button class="btn btn-success btn-block" type="button" data-toggle="modal" onclick="document.getElementById('user-form-modal').style.display='block'">Nuevo producto</button>
+                    </div>
+                    <hr class="my-3">
+                    <div class="e-navlist e-navlist--active-bold">
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- User Form Modal -->
+            <div class="modal fade show" role="dialog" tabindex="-1" id="user-form-modal">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="addoact">a</h5>
+                    <button type="button" class="close" onclick="document.getElementById('user-form-modal').style.display='none'">
+                    <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="py-1">
+                      <form class="form" novalidate="">
+                        <div class="row">
+                          <div class="col">
+                            
+                            <!-- Nombre y Apellido -->
+                            <div class="row">
+                              <div class="col">
+                                <div class="form-group">
+                                  <label>Nombre</label>
+                                  <input class="form-control" id="nombreValue" type="text" name="name" placeholder="John" value="John">
+                                </div>
+                              </div>
+                              <div class="col">
+                                <div class="form-group">
+                                  <label>Apellido</label>
+                                  <input class="form-control" id="precioValue" type="text" name="lastname" placeholder="Smith" value="Smith">
+                                </div>
+                              </div>
+                            </div>
+                            
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            
+                            <!-- Fecha de nacimiento y estado -->
+                            <div class="row">
+                              <div class="col">
+                                <div class="form-group">
+                                  <label>Fecha de nacimiento</label>
+                                  <input class="form-control" id="stockValue" type="date" name="date">
+                                </div>
+                              </div>
+                              
+                              <!-- -->
+                              <div class="col">
+                                <label>Estado</label>
+                                <div class="custom-controls-stacked px-2">
+                                  <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="estadoValue" checked="False" >
+                                    <label class="custom-control-label" for="estadoValue">Activo</label>
+                                  </div>
+                                 
+                                </div>
+                              </div>
+                              <!-- -->
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="col d-flex justify-content-end">
+                              <button class="btn btn-primary" type="submit" id="addoactb">a</button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>`
+      }
+      if (target.id == "2") {
+        console.log("adsdff");
+        contenido!.innerHTML = `
+                      <div class="row mt-2 text-center">
+                      <div class="col-sm-3">
+                          <div class="input-group mt-3">
+                            <div class="input-group-prepend">
+                              <label class="input-group-text" for="inputGroupSelect01">Clientes</label>
+                            </div>
+                            <select class="custom-select" id="inputGroupSelect01">
+                              <option selected>Seleccione el cliente</option>
+                              
+                            </select>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="table-responsive">
+                      <div class="table-wrapper">
+                          <div class="table-title">
+                              <div class="row">
+                                  <div class="col-sm-5">
+                                      <h2>Facturas antiguas</h2>
+                                  </div>
+                              </div>
+                          </div>
+                          <table id="ordenes" class="table table-striped table-hover">
+                              <thead>
+                                  <tr>
+                                      <th>#</th>
+                                      <th>Fecha de Factura</th>
+                                      <th>Código de Producto</th>
+                                      <th>Cantidad</th>
+                                      <th>Precio Unitario</th>
+                                      <th>Precio Parcial</th>
+                                  </tr>
+                              </thead>
+                              <tbody id="ordenes_tablas">
+                                  
+                              </tbody>
+                          </table>
+                          <div class="clearfix">
+                              <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+                              <ul class="pagination">
+                                  <li class="page-item disabled"><a href="#">Previous</a></li>
+                                  <li class="page-item"><a href="#" class="page-link">1</a></li>
+                                  <li class="page-item"><a href="#" class="page-link">2</a></li>
+                                  <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                                  <li class="page-item"><a href="#" class="page-link">4</a></li>
+                                  <li class="page-item"><a href="#" class="page-link">5</a></li>
+                                  <li class="page-item"><a href="#" class="page-link">Next</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>  
+        `
+      }
+    });
+
+
+ //añadir
+ botonAdd!.addEventListener('click',()=>{
+  cambiarTitulo!.textContent='Crear Producto';
+  cambiarBoton!.textContent='Guardar';
+  nombreValue.value='';
+  precioValue.value='';
+  stockValue.value='';
+  tipoValue.value='';
+  categoriaValue.value='';
+  })
+  addClientes!.addEventListener('submit',(e)=>{
+    if(cambiarBoton!.textContent=='Guardar'){
+      if(nombreValue.value==''||precioValue.value==''||stockValue.value==''){
+        window.alert("nosepuede");
+      }
+      else{
+        e.preventDefault();
+        fetch(url,{
+        method: 'POST',
+        headers:{
+          'Content-Type': 'application/json'
+
+        },
+        
+        body: JSON.stringify({
+          nombre: nombreValue.value,
+          apellido: precioValue.value,
+          fechaNacimiento: stockValue.value
+        })
+        
+      })
+      .then(res => res.json())
+      .then(document.getElementById('clientes').innerHTML =null)
+      .then(() => location.reload());history.replaceState({}, null, "");
+  }}
+  })
+
+
+
+
+    //borrar y actualizar
+    /*listaproductos!.addEventListener('click',(e)=>{
+      let target= e.target as HTMLTableElement
+	let botonEditar =target.id == 'editar';
+	let botonBorrar = target.id == 'borrar';
+	let botonBorrar2 = target.id == 'borrar2';
+	let id;
+	if(botonBorrar ){
+		id=target.parentElement!.dataset.id;
+		fetch(`${url}/${id}`,{
+			method: 'DELETE',
+		})
+		.then(res=> res.json())
+		.then(() => location.reload());
+	}
+	if( botonBorrar2){
+		id=target.parentElement!.parentElement!.dataset.id;
+		fetch(`${url}/${id}`,{
+			method: 'DELETE',
+		})
+		.then(res=> res.json())
+		.then(() => location.reload());
+	}
+
+	if( botonEditar){
+		console.log(cambiarTitulo!.textContent);
+		cambiarTitulo!.textContent='Actualizar Producto';
+		cambiarBoton!.textContent='Actualizar';
+		
+
+
+		id=target.parentElement!.dataset.id;
+		const parent = target.parentElement!.parentElement!.parentElement;
+		
+		let nom = parent!.querySelector('.nom')!.textContent;
+		let ap = parent!.querySelector('.ap')!.textContent;
+		let fec = parent!.querySelector('.fec')!.textContent;
+		let act = parent!.querySelector('#act')!.className;
+	
+	
+		nombreValue.value = nom;
+		apellidoValue.value = ap;
+		fechaValue.value = fec;
+		checkValue.checked = bolonof;
+
+		console.log(onof);
+	}
+	botonAct!.addEventListener('click',() =>{
+		if(cambiarBoton!.textContent=='Actualizar'){
+			if(nombreValue.value==''||apellidoValue.value==''||fechaValue.value==''){
+				window.alert("nosepuede");
+			}
+			else{
+				fetch(`${url}/${id}`,{
+					method: 'PUT',
+					headers:{
+						'Content-Type': 'application/json'
+				
+					},
+
+					
+					body: JSON.stringify({
+						nombre: nombreValue.value,
+						apellido: apellidoValue.value,
+						fechaNacimiento: fechaValue.value,
+						estado: estadoValue
+					})
+				})
+				.then(res=> res.json())
+				.then(() => location.reload());history.replaceState({}, null, "");
+			}
+		}
+	})
+
+
+})*/
+   
+
+  }
+
+
+
+}
