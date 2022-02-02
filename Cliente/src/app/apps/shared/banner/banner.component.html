@@ -77,7 +77,7 @@
     class="close" title="Close Modal">&times;</span>
 
     <!-- Modal Content -->
-    <form id= "login_form" class="modal-content animate" action="/action_page.php">
+    <form id="login_register" class="modal-content animate" action="/action_page.php" method="POST">
       <div class="imgcontainer">
         <img src="assets/images/logos/logo_registro.png" alt="Avatar" class="avatar">
         <h1>Registrarme como cliente</h1>
@@ -85,28 +85,41 @@
 
       <div class="container">
 
-        <label for="mail"><b>Correo electrónico</b></label>
-        <input type="text" placeholder="Ingrese su correo electrónico" name="uname" required>
-        
-        <label for="uname"><b>Usuario</b></label>
-        <input type="text" placeholder="Ingrese su nuevo usuario" name="uname" required>
-
-        <label for="psw"><b>Contraseña</b></label>
-        <input type="password" placeholder="Ingrese su nueva contraseña" name="psw" required>
-
-        <label for="r_psw"><b>Repetir contraseña</b></label>
-        <input type="password" placeholder="Vuelva a ingresar la contraseña" name="psw" required>
-
-        <label for="name"><b>Nombre</b></label>
-        <input type="text" placeholder="Ingrese su nombre" name="uname" required>
+        <label for="nname"><b>Nombre</b></label>
+        <input id="nombreusuarioValue" type="text" placeholder="Ingrese su nombre" name="nname" required>
         
         <label for="lastname"><b>Apellido</b></label>
-        <input type="text" placeholder="Ingrese su apellido" name="uname" required>
+        <input id="apellidoValue" type="text" placeholder="Ingrese su apellido" name="lastname" required>
+
+        <label for="cedula"><b>Cedula</b></label>
+        <input id="cedulaValue" type="text" placeholder="Ingrese su cedula" name="cedula" required>
+
+        <label for="mail"><b>Correo electrónico</b></label>
+        <input id="correoValue" type="text" placeholder="Ingrese su correo electrónico" name="mail" required>
+
+        <label for="telef"><b>Numero telefonico</b></label>
+        <input id="telefonoValue" type="text" placeholder="Ingrese su correo numero telefonico" name="telef" required>
+
+        <label for="ciudad"><b>Ciudad</b></label>
+        <input id="ciudadValue" type="text" placeholder="Ingrese la ciudad donde reside" name="ciudad" required>
+
+        <label for="dic"><b>Dirección</b></label>
+        <input id="direccionValue" type="text" placeholder="Ingrese su dirección" name="dic" required>
+        
+        <label for="uname"><b>Usuario</b></label>
+        <input id="usuarioValue" type="text" placeholder="Ingrese su nuevo usuario" name="uname" required>
+
+        <label for="psw"><b>Contraseña</b></label>
+        <input id="contraseñaValue" type="password" placeholder="Ingrese su nueva contraseña" name="psw" required>
+
+        <label for="r_psw"><b>Repetir contraseña</b></label>
+        <input id="contraseñaValidaValue" type="password" placeholder="Vuelva a ingresar la contraseña" name="r_psw" required>
 
         <label for="udate"><b>Fecha de nacimiento</b></label>
-        <input type="date" placeholder="Ingrese su fecha de nacimiento"  name= "uname" required>
+        <input id="fechaNacimientoValue" type="date" placeholder="Ingrese su fecha de nacimiento"  name= "udate" required>
 
-        <button id="submit_registrar_btn" type="submit">Iniciar sesión</button>
+        <button id="submit_registrar_btn" type="submit">Registrarme</button>
+
         <label>
           <input type="checkbox" checked="checked" name="remember"> Recordarme
         </label>

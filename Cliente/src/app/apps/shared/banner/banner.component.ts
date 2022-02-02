@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Directive, HostListener } from '@angular/core';
 import { ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { createEnumDeclaration } from 'typescript';
 
 @Component({
   selector: 'app-banner',
@@ -17,14 +18,13 @@ export class BannerComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
     console.log(document.cookie);
-
+    this.asignarLogin();
     if (document.cookie != "") {
       console.log(document.cookie);
       document.getElementById('botonesTipoCuenta')!.innerHTML = `<li class="nav-item ">
-                  <a id= "perfilCliente" href="/admin" class="btn-top btn-danger-gradiant font-14" >
-                    ${ this.getCookie("username")}
+                  <a id= "perfilCliente" href="/${this.getCookie("tipo")}" class="btn-top btn-danger-gradiant font-14" >
+                    ${this.getCookie("username")}
                   </a>
               </li>
               <li class="nav-item ">
@@ -32,48 +32,97 @@ export class BannerComponent implements OnInit {
                    logout
                   </a>
               </li>`;
-              this.asignarLogout();
+            this.asignarLogout();
 
     };
   }
 
   asignarLogout(){
-    
     document.getElementById('logout')!.addEventListener('click', function () {
-      console.log("xd");
       document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      document.cookie = "tipo=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
       location.reload();
     });
   }
 
-  onSubmit_Login(user: string, password: string) {
-    this.http.get('https://run.mocky.io/v3/42ac4610-1565-4691-9fac-f4eae4cf32e8')
-      .subscribe(Response => {
+  asignarLogin(){
+    const correoValue = document.getElementById('correoValue') as HTMLFormElement;
+    const usuarioValue = document.getElementById('usuarioValue') as HTMLFormElement;
+    const contraseñaValue = document.getElementById('contraseñaValue') as HTMLFormElement;
+    const contraseñaValidaValue = document.getElementById('contraseñaValidaValue') as HTMLFormElement;
+    const nombreusuarioValue = document.getElementById('nombreusuarioValue') as HTMLFormElement;
+    const apellidoValue = document.getElementById('apellidoValue') as HTMLFormElement;
+    const fechaNacimientoValue = document.getElementById('fechaNacimientoValue') as HTMLFormElement;
+    const cedulaValue = document.getElementById('cedulaValue') as HTMLFormElement;
+    const telefonoValue = document.getElementById('telefonoValue') as HTMLFormElement;
+    const ciudadValue = document.getElementById('ciudadValue') as HTMLFormElement;
+    const direccionValue = document.getElementById('direccionValue') as HTMLFormElement;
+    const url="http://localhost:3001/api/usuarios";
 
+    document.getElementById('login_register')!.addEventListener('submit', event => {
+    // submit event detected
+    console.log("hola")
+      if(direccionValue.value==''||ciudadValue.value==''||telefonoValue.value==''||cedulaValue.value==''||nombreusuarioValue.value==''||correoValue.value==''||usuarioValue.value==''||contraseñaValue.value==''
+      ||contraseñaValidaValue.value==''||apellidoValue.value==''||fechaNacimientoValue.value==''){
+        window.alert("Llenar todos los datos");
+      }
+      else if(contraseñaValue.value != contraseñaValidaValue.value){
+        window.alert("Las contraseñas no son iguales");
+      }
+      else{
+        event.preventDefault();
+        
+        fetch(url,{
+        method: 'POST',
+        headers:{
+          'Content-Type': 'application/json'
+
+        },
+        
+        body: JSON.stringify({
+          cedula: cedulaValue.value,
+          nombre: nombreusuarioValue.value,
+          apellido: apellidoValue.value,
+          correo: correoValue.value,
+          ciudad: ciudadValue.value,
+          direccion: direccionValue.value,
+          contraseña: contraseñaValidaValue.value,
+          telefono: telefonoValue.value,
+          usuario: usuarioValue.value,
+          tipo: "cliente"
+          
+        })
+      })
+      .then(res => res.json()).then(() => location.reload());
+      
+  }
+  });
+  }
+
+
+  onSubmit_Login(user: string, password: string) {
+    fetch('http://localhost:3001/api/usuarios')
+    .then(texto => texto.json())
+    .then(datos => {
+      for (let usuario of datos) {
+        console.log(usuario)
         // If response comes hideloader() function is called
         // to hide that loader
-
-        var li = Object.entries(Response)
-        var clientes = li[0][1];
-
         if (user == "" && password == "") {
           alert("Complete todos los campos");
         } else {
-          for (let i in clientes) {
-
-            console.log(clientes[i]["name"]);
-            if (clientes[i]["name"] == user) {
-              if (clientes[i]["pass"] != password) {
+            if (usuario.usuario == user) {
+              if (usuario.contraseña != password) {
                 alert("Contrasena incorrecta");
-
                 break;
               } else {
                 document.getElementById("id_login")!.style.display = "none";   
                 alert("Seion iniciada");
-                document.cookie = "username=" + clientes[i]["name"];
+                document.cookie = "username=" + usuario.nombre;
+                document.cookie = "tipo=" + usuario.tipo;
                 document.getElementById('botonesTipoCuenta')!.innerHTML = `<li class="nav-item ">
-                  <a id= "perfilCliente" href="/admin" class="btn-top btn-danger-gradiant font-14" >
-                    ${clientes[i]["name"]}
+                  <a id="perfilCliente" href="/${usuario.tipo}" class="btn-top btn-danger-gradiant font-14" >
+                    ${usuario.nombre}
                   </a>
               </li>
               <li class="nav-item ">
