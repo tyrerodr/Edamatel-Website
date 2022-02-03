@@ -92,7 +92,10 @@ export class BannerComponent implements OnInit {
           
         })
       })
-      .then(res => res.json()).then(() => location.reload());
+      .then(res => res.json()).then(() =>{
+
+        this.onSubmit_Login(usuarioValue.value, contraseñaValidaValue.value);
+        location.reload()} );
       
   }
   });
@@ -113,7 +116,7 @@ export class BannerComponent implements OnInit {
         // to hide that loader
         if(usuario.contraseña == password && usuario.usuario == user){
           document.getElementById("id_login")!.style.display = "none";   
-          alert("Sesion iniciada");
+          
           document.cookie = "username=" + usuario.nombre;
           document.cookie = "tipo=" + usuario.tipo;
           document.cookie = "identificador=" + usuario.id_usuario;

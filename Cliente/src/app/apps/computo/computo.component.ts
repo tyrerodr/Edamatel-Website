@@ -23,9 +23,9 @@ export class ComputoComponent implements OnInit {
     listaproductos!.innerHTML = "";
     const carritoButton = document.getElementById('carritoButton');
     this.cargarArticulos(url, listaproductos!);
-    console.log(this.getCookie("id"));
+    console.log(this.getCookie("identificador"));
     carritoButton!.addEventListener('click', () => {
-      this.cargarCarrito("http://localhost:3001/api/carrito", listacarrito!, this.getCookie("id"));
+      this.cargarCarrito("http://localhost:3001/api/carrito", listacarrito!, this.getCookie("identificador"));
 
     });
 
@@ -69,7 +69,7 @@ export class ComputoComponent implements OnInit {
             console.log(target.dataset.id);
             console.log(cantidad.value);
             console.log(stock!.dataset.id);
-            console.log(this.getCookie("id"));
+           
             document.getElementById('productosCarrito');
             if (parseInt(cantidad.value) <= parseInt(stock!.dataset.id!)) {
 
@@ -85,7 +85,7 @@ export class ComputoComponent implements OnInit {
                   cantidad: parseInt(cantidad.value),
                   descuento: 0,
                   id_articulo: articulo.id_articulo,
-                  id_usuario: parseInt(this.getCookie("id"))
+                  id_usuario: parseInt(this.getCookie("identificador"))
                 })
 
               }).then(res => {
