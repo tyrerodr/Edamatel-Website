@@ -18,18 +18,20 @@ function initModels(sequelize) {
   var tipos_pago = _tipos_pago(sequelize, DataTypes);
   var usuario = _usuario(sequelize, DataTypes);
 
+  articulo.belongsToMany(usuario, { as: 'id_usuario_usuarios', through: articulos_compra, foreignKey: "id_articulo", otherKey: "id_usuario" });
+  usuario.belongsToMany(articulo, { as: 'id_articulo_articulos', through: articulos_compra, foreignKey: "id_usuario", otherKey: "id_articulo" });
   articulos_compra.belongsTo(articulo, { as: "id_articulo_articulo", foreignKey: "id_articulo"});
   articulo.hasMany(articulos_compra, { as: "articulos_compras", foreignKey: "id_articulo"});
   proovedor.belongsTo(articulo, { as: "id_articulo_articulo", foreignKey: "id_articulo"});
   articulo.hasMany(proovedor, { as: "proovedors", foreignKey: "id_articulo"});
-  articulos_compra.belongsTo(compra, { as: "id_compra_compra", foreignKey: "id_compra"});
-  compra.hasMany(articulos_compra, { as: "articulos_compras", foreignKey: "id_compra"});
   servicio.belongsTo(solicitud, { as: "id_servicioSolicitado_solicitud", foreignKey: "id_servicioSolicitado"});
   solicitud.hasMany(servicio, { as: "servicios", foreignKey: "id_servicioSolicitado"});
   compra.belongsTo(tipos_pago, { as: "id_tipo_pago_tipos_pago", foreignKey: "id_tipo_pago"});
   tipos_pago.hasMany(compra, { as: "compras", foreignKey: "id_tipo_pago"});
   articulo.belongsTo(usuario, { as: "id_administrador_usuario", foreignKey: "id_administrador"});
   usuario.hasMany(articulo, { as: "articulos", foreignKey: "id_administrador"});
+  articulos_compra.belongsTo(usuario, { as: "id_usuario_usuario", foreignKey: "id_usuario"});
+  usuario.hasMany(articulos_compra, { as: "articulos_compras", foreignKey: "id_usuario"});
   compra.belongsTo(usuario, { as: "id_cliente_usuario", foreignKey: "id_cliente"});
   usuario.hasMany(compra, { as: "compras", foreignKey: "id_cliente"});
   servicio.belongsTo(usuario, { as: "id_administrador_usuario", foreignKey: "id_administrador"});

@@ -1,12 +1,6 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('articulos_compra', {
-    id_articulo_compra: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
     cantidad: {
       type: DataTypes.INTEGER,
       allowNull: true
@@ -15,24 +9,22 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DOUBLE,
       allowNull: true
     },
-    precio_articulos: {
-      type: DataTypes.DOUBLE,
-      allowNull: true
-    },
     id_articulo: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
+      primaryKey: true,
       references: {
         model: 'articulo',
         key: 'id_articulo'
       }
     },
-    id_compra: {
+    id_usuario: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
+      primaryKey: true,
       references: {
-        model: 'compra',
-        key: 'id_compra'
+        model: 'usuario',
+        key: 'id_usuario'
       }
     }
   }, {
@@ -45,7 +37,8 @@ module.exports = function(sequelize, DataTypes) {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "id_articulo_compra" },
+          { name: "id_usuario" },
+          { name: "id_articulo" },
         ]
       },
       {
@@ -53,13 +46,6 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "id_articulo" },
-        ]
-      },
-      {
-        name: "id_compra",
-        using: "BTREE",
-        fields: [
-          { name: "id_compra" },
         ]
       },
     ]

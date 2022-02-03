@@ -59,4 +59,58 @@ router.delete('/articulos/:articuloId', (req, res, next) => {
 });
 
 
+//get carrito
+router.get('/carrito/:userId', (req, res, next) => { 
+  models.articulos_compra.findAll({ 
+    where: {id_usuario: req.params.userId}
+   })
+   .then(articulos => {
+      res.send(articulos)
+   })
+   .catch(error => res.status(400).send(error))
+});
+
+ //get articulos
+ router.get('/articulos/:usuarioId', (req, res, next) => { 
+  models.articulo.findAll({ 
+    where: {
+      id_articulo: req.params.usuarioId
+    }
+   })
+   .then(articulos => {
+      res.send(articulos)
+   })
+   .catch(error => res.status(400).send(error))
+});
+//get articulo por id
+router.get('/articulo/:articuloId', (req, res, next) => {
+  models.articulo.findAll({
+    attributes: { exclude: ["updatedAt"]  },
+    where: {
+      id_articulo: req.params.articuloId
+    }
+}).then(autores => {
+  res.send(autores)
+})
+.catch(error => res.status(400).send(error))
+});
+
+//put en el carrito
+router.post('/carrito', (req, res, next) => {
+ 
+  models.articulos_compra.create(req.body).then(response => console.log("exito"))
+  .catch(error =>{console.log(error);res.status(400).send(error)} ) // TypeError: failed to fetch (the text may vary);
+  
+  
+});
+
+/* DELETE carrito */
+router.delete('/carrito/:articuloId/:usuarioId', (req, res, next) => {
+  models.articulos_compra.destroy({
+    where: {id_articulo: req.params.articuloId ,id_usuario: req.params.usuarioId}
+  });
+  res.json({success: "borrado"}).catch(error => res.status(400).send(error))
+});
+
+
 module.exports = router;

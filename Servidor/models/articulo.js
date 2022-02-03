@@ -27,10 +27,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(30),
       allowNull: true
     },
-    marca: {
-      type: DataTypes.STRING(30),
-      allowNull: true
-    },
     id_administrador: {
       type: DataTypes.INTEGER,
       allowNull: true,
@@ -38,6 +34,10 @@ module.exports = function(sequelize, DataTypes) {
         model: 'usuario',
         key: 'id_usuario'
       }
+    },
+    marca: {
+      type: DataTypes.STRING(30),
+      allowNull: true
     }
   }, {
     sequelize,
