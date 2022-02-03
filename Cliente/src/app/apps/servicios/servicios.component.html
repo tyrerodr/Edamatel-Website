@@ -39,49 +39,49 @@
 <!-- ============================================================== -->
 <!-- Feature 1  -->
 <!-- ============================================================== -->
-<form>
+
+<form name="formulario" netlify>
+    <label for="inputNombre">Nombre</label>
+    <input type="text" class="form-control" name="inputNombre" required>
+
+    <label for="inputEmpresa">Empresa</label>
+    <input type="text" class="form-control" name="inputEmpresa" required>
+
+    <button id="enviarFormularios" type="submit" class= "btn btn-crimson" routerLink= "/"> Enviar Formulario</button>
+</form> 
+
+<form name="formulario" netlify>
   <div class="container border border-danger pt-3">
-    <!-- Row  -->
-    
-        <div class="form-group ">
+      <div class="form-group">
             <label for="inputNombre">Nombre</label>
-            <input type="Nombre" class="form-control" id="InputNombre" >
-          </div>
-          <div class="form-group">
-              <label for="inputEmpresa">Empresa</label>
-              <input type="Empresa" class="form-control" id="InputEmpresa" >
-            </div>
-            <div class="form-group">
-                <label for="inputTelefono">Telefono</label>
-                <input type="telefono" class="form-control" id="inputTelefono">
-              </div>
+            <input type="text" class="form-control" name="inputNombre" required>
 
-      <div class="form-group">
-        <label for="exampleFormControlInput1">Correo electronico</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nombre@ejemplo.com">
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlSelect1">Tipo de servicio</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-          <option>Instalación</option>
-          <option>Reparación</option>
-          <option>Mantenimiento</option>
+            <label for="inputEmpresa">Empresa</label>
+            <input type="text" class="form-control" name="inputEmpresa" required>
+  
+            <label for="inputTelefono">Telefono</label>
+            <input type="tezt" class="form-control" name="inputTelefono" required>
 
-        </select>
-      </div>
+            <label for="inputCorreo">Correo electronico</label>
+            <input type="text" class="form-control" name="inputCorreo" placeholder="nombre@ejemplo.com" required>
 
 
-      <div class="form-group">
-        <label for="exampleFormControlTextarea1">Descripcion de servicio requerido</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ></textarea>
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlTextarea2">Ubicación y referencias</label>
-        <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"></textarea>
+            <label for="inputServicio">Tipo de servicio</label>
+            <select class="form-control" name="inputServicio">
+              <option>Instalación</option>
+              <option>Reparación</option>
+              <option>Mantenimiento</option>
+            </select>
+
+            <label for="inputDescripcion">Descripcion de servicio requerido</label>
+            <textarea type="text" class="form-control" name="inputDescripcion" rows="3" ></textarea>
+      
+            <label for="inputUbicacion">Ubicación y referencias</label>
+            <textarea type="text" class="form-control" id="inputUbicacion" rows="3"></textarea>
       </div>
   </div>
   <div class="container d-flex justify-content-center spacer">
-      <button type="reset" class=" btn btn-crimson ">Enviar Formulario</button>
+      <button id="enviarFormulario" type="submit" class= "btn btn-crimson" routerLink= "/"> Enviar Formulario</button>
   </div>
   </form> 
 
