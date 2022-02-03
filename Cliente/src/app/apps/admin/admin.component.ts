@@ -258,7 +258,7 @@ export class AdminComponent implements OnInit {
       if(selector.value!="0"){
       document.getElementById("ordenes_tablas")!.innerHTML = "";
            let target= e.target as HTMLOptionElement;
-      
+      console.log(selector.options[selector.selectedIndex].className);
        fetch("http://localhost:3002/solicitudes/"+selector.value)
        .then(texto => texto.json())
        .then(solicitudes => {
@@ -281,7 +281,7 @@ export class AdminComponent implements OnInit {
          }
       
        }) 
-       selector.value="0";
+      
       }
       })
 

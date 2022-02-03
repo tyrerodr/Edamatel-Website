@@ -15,7 +15,7 @@ export class ScatterComponent implements OnInit {
     {"Framework": "Backbone", "Stars": "27647", "Released": "2010"},
     {"Framework": "Ember", "Stars": "21471", "Released": "2011"},
   ];
-  private svg!: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
+  private svg!: d3.Selection<SVGGElement, any, HTMLElement, any>;
   private margin = 50;
   private width = 750 - (this.margin * 2);
   private height = 400 - (this.margin * 2);

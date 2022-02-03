@@ -16,6 +16,15 @@ router.get('/usuarios', (req, res, next) => {
     .catch(error => res.status(400).send(error))
  });
 
+ router.get('/usuarios/:id', (req, res, next) => { 
+  models.usuario.findAll({ 
+    where: {id_usuario: req.params.id}
+   })
+   .then(usuarios => {
+      res.send(usuarios)
+   })
+   .catch(error => res.status(400).send(error))
+});
 
  //get articulos
  router.get('/articulos', (req, res, next) => { 

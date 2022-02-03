@@ -17,7 +17,7 @@ router.get('/:id', solicitudesController.show);
 /*
  * POST
  */
-router.post('/', solicitudesController.create);
+router.post('/crearsolicitud', solicitudesController.create);
 
 /*
  * PUT

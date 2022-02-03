@@ -15,13 +15,13 @@ export class PieComponent implements OnInit {
       {"Framework": "Backbone", "Stars": "27647", "Released": "2010"},
       {"Framework": "Ember", "Stars": "21471", "Released": "2011"},
     ];
-    private svg!: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
+    private svg!: d3.Selection<SVGGElement, any, HTMLElement, any>;
     private margin = 50;
     private width = 750;
     private height = 600;
     // The radius of the pie chart is half the smallest side
     private radius = Math.min(this.width, this.height) / 2 - this.margin;
-    private colors!: d3.ScaleOrdinal<string, unknown, never>;
+    private colors!: d3.ScaleOrdinal<string, any, never>;
   constructor() { }
 
   ngOnInit(): void {

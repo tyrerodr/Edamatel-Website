@@ -34,8 +34,9 @@ var transporter = nodemailer.createTransport({
 var mailOptions = {
   from: 'proyectoedmatel@gmail.com',
   to: 'riki.zp@hotmail.com',    
-  subject: 'Sending Email using Node.js',
-  text: `${req.body.telefono} \n ${req.body.servicio}`
+  subject: `${req.body.servicio} ${req.body.nombre} ${req.body.apellido} `,
+  text: `nombre: ${req.body.nombre} ${req.body.apellido}\ntelefono: ${req.body.telefono}\nTipo de servicio: ${req.body.servicio}\n
+  horario deseado: ${req.body.horario}\nDescripción del trabajo: ${req.body.descripción}  `
   // html: '<h1>Hi Smartherd</h1><p>Your Messsage</p>'        
 };
 
