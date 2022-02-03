@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { time } from 'console';
 import * as d3 from "d3";
 
 @Component({
@@ -28,19 +27,25 @@ export class ScatterComponent implements OnInit {
   }
 
   private generarData(){
-    fetch('http://localhost:3001/api/solicitudes')
+    fetch('http://localhost:3002/lista')
     .then(texto => texto.json())
     .then(solicitudes => {
+      
+      console.log(solicitudes)
+
+
       var file ={};
       var data:any = [];
       let listaSolicitudes:any = [];
       for(let solicitud of solicitudes) {
         listaSolicitudes.push(solicitud.servicio)
-        var fecha = new Date(solicitud.horario_solicitado);
-        file = {servicio: solicitud.servicio, cantidadServicio: 1, fechaServicio:fecha.getFullYear()};
+        var hora = solicitud.horario_solicitado.substring(0,2)
+        console.log(hora)
+        file = {servicio: solicitud.servicio, cantidadServicio: 1, fechaServicio: hora};
         data.push(file);
       }
 
+    
       console.log(listaSolicitudes)
       const miCarritoSinDuplicados = data.reduce((acumulador: { servicio: any; cantidadServicio: any; }[], valorActual: { servicio: any; cantidadServicio: any; }) => {
         const elementoYaExiste = acumulador.find((elemento: { servicio: any; }) => elemento.servicio === valorActual.servicio);
@@ -81,7 +86,7 @@ private drawPlot(data: any[]): void{
   // Add X axis
 
   const x = d3.scaleTime()
-    .domain([2021, 2024])
+    .domain([1, 24])
     .range([ 0, this.width ]);
     this.svg.append("g")
     .attr("transform", "translate(0," + this.height + ")")

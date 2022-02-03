@@ -37,16 +37,16 @@ router.get('/usuarios', (req, res, next) => {
    .catch(error => res.status(400).send(error))
 });
 
-//get servicio
-router.get('/solicitudes', (req, res, next) => { 
-  models.solicitud.findAll({ 
+//get solicitudes
+ router.get('/solicitudes', (req, res, next) => { 
+   models.solicitud.findAll({ 
      
-   })
-   .then(solicitudes => {
-      res.send(solicitudes)
-   })
-   .catch(error => res.status(400).send(error))
-});
+    })
+    .then(solicitudes => {
+       res.send(solicitudes)
+    })
+    .catch(error => res.status(400).send(error))
+ });
 
 
 /* POST usuarios crear */
