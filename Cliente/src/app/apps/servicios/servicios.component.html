@@ -1,3 +1,5 @@
+<script type="text/javascript" src="./servicios.js"></script>
+<script  src="./require.js"></script>
 <div
   class="banner-innerpage"
   style="background-image: url(assets/images/landingpage/banner-bg2.jpg)"
@@ -40,48 +42,38 @@
 <!-- Feature 1  -->
 <!-- ============================================================== -->
 
-<form name="formulario" netlify>
-    <label for="inputNombre">Nombre</label>
-    <input type="text" class="form-control" name="inputNombre" required>
-
-    <label for="inputEmpresa">Empresa</label>
-    <input type="text" class="form-control" name="inputEmpresa" required>
-
-    <button id="enviarFormularios" type="submit" class= "btn btn-crimson" routerLink= "/"> Enviar Formulario</button>
-</form> 
-
-<form name="formulario" netlify>
+<form name="formulario" >
   <div class="container border border-danger pt-3">
-      <div class="form-group">
+      <div class="form-group" id="casillas">
             <label for="inputNombre">Nombre</label>
-            <input type="text" class="form-control" name="inputNombre" required>
+            <input type="text" class="form-control" id="inputNombre" required>
 
             <label for="inputEmpresa">Empresa</label>
-            <input type="text" class="form-control" name="inputEmpresa" required>
+            <input type="text" class="form-control" id="inputEmpresa" required>
   
             <label for="inputTelefono">Telefono</label>
-            <input type="tezt" class="form-control" name="inputTelefono" required>
+            <input type="tezt" class="form-control" id="inputTelefono" required>
 
             <label for="inputCorreo">Correo electronico</label>
-            <input type="text" class="form-control" name="inputCorreo" placeholder="nombre@ejemplo.com" required>
+            <input type="text" class="form-control" id="inputCorreo" placeholder="nombre@ejemplo.com" required>
 
 
             <label for="inputServicio">Tipo de servicio</label>
-            <select class="form-control" name="inputServicio">
+            <select class="form-control" id="inputServicio">
               <option>Instalación</option>
               <option>Reparación</option>
               <option>Mantenimiento</option>
             </select>
-
+            
             <label for="inputDescripcion">Descripcion de servicio requerido</label>
-            <textarea type="text" class="form-control" name="inputDescripcion" rows="3" ></textarea>
+            <textarea type="text" class="form-control" id="inputDescripcion" rows="3" ></textarea>
       
             <label for="inputUbicacion">Ubicación y referencias</label>
             <textarea type="text" class="form-control" id="inputUbicacion" rows="3"></textarea>
       </div>
   </div>
   <div class="container d-flex justify-content-center spacer">
-      <button id="enviarFormulario" type="submit" class= "btn btn-crimson" routerLink= "/"> Enviar Formulario</button>
+      <button id="enviarFormulario" type="submit" class= "btn btn-crimson"  > Enviar Formulario</button>
   </div>
   </form> 
 
