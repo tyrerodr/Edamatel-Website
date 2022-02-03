@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true
     },
     horario_solicitado: {
-      type: DataTypes.DATE,
+      type: DataTypes.TIME,
       allowNull: true
     },
     descripcion: {

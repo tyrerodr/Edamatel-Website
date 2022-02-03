@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { time } from 'console';
 import * as d3 from "d3";
 
 @Component({
@@ -23,7 +24,45 @@ export class ScatterComponent implements OnInit {
 
   ngOnInit(): void {
     this.createSvg();
-    this.drawPlot();
+    this.generarData();
+  }
+
+  private generarData(){
+    fetch('http://localhost:3001/api/solicitudes')
+    .then(texto => texto.json())
+    .then(solicitudes => {
+      var file ={};
+      var data:any = [];
+      let listaSolicitudes:any = [];
+      for(let solicitud of solicitudes) {
+        listaSolicitudes.push(solicitud.servicio)
+        var fecha = new Date(solicitud.horario_solicitado);
+        file = {servicio: solicitud.servicio, cantidadServicio: 1, fechaServicio:fecha.getFullYear()};
+        data.push(file);
+      }
+
+      console.log(listaSolicitudes)
+      const miCarritoSinDuplicados = data.reduce((acumulador: { servicio: any; cantidadServicio: any; }[], valorActual: { servicio: any; cantidadServicio: any; }) => {
+        const elementoYaExiste = acumulador.find((elemento: { servicio: any; }) => elemento.servicio === valorActual.servicio);
+        if (elementoYaExiste) {
+          return acumulador.map((elemento: { servicio: any; cantidadServicio: any; }) => {
+            if (elemento.servicio === valorActual.servicio) {
+              return {
+                ...elemento,
+                cantidadServicio: elemento.cantidadServicio + valorActual.cantidadServicio
+              }
+            }
+            return elemento;
+          });
+        }
+        return [...acumulador, valorActual];
+      }, []);
+      
+      console.log(miCarritoSinDuplicados);
+      data = miCarritoSinDuplicados;
+
+      this.drawPlot(data); 
+  });
   }
 
   private createSvg(): void {
@@ -36,17 +75,22 @@ export class ScatterComponent implements OnInit {
 }
 
 private drawPlot(data: any[]): void{
-  // Add X axis
-  const x = d3.scaleLinear()
-  .domain([2009, 2017])
-  .range([ 0, this.width ]);
-  this.svg.append("g")
-  .attr("transform", "translate(0," + this.height + ")")
-  .call(d3.axisBottom(x).tickFormat(d3.format("d")));
+ 
 
+
+  // Add X axis
+
+  const x = d3.scaleTime()
+    .domain([2021, 2024])
+    .range([ 0, this.width ]);
+    this.svg.append("g")
+    .attr("transform", "translate(0," + this.height + ")")
+    .call(d3.axisBottom(x).tickFormat(d3.format("d")));
+
+  
   // Add Y axis
   const y = d3.scaleLinear()
-  .domain([0, 200000])
+  .domain([0, 5])
   .range([ this.height, 0]);
   this.svg.append("g")
   .call(d3.axisLeft(y));
@@ -54,23 +98,25 @@ private drawPlot(data: any[]): void{
   // Add dots
   const dots = this.svg.append('g');
   dots.selectAll("dot")
-  .data(this.data)
+  .data(data)
   .enter()
   .append("circle")
-  .attr("cx", d => x(d.Released))
-  .attr("cy", d => y(d.Stars))
+  .attr("cx", d => x(d.fechaServicio))
+  .attr("cy", d => y(d.cantidadServicio))
   .attr("r", 7)
   .style("opacity", .5)
   .style("fill", "#69b3a2");
 
   // Add labels
   dots.selectAll("text")
-  .data(this.data)
+  .data(data)
   .enter()
   .append("text")
-  .text(d => d.Framework)
-  .attr("x", d => x(d.Released))
-  .attr("y", d => y(d.Stars))
+  .text(d => d.servicio)
+  .attr("x", d => x(d.fechaServicio))
+  .attr("y", d => y(d.cantidadServicio))
+
+ 
 }
 
 }

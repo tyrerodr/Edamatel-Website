@@ -29,12 +29,12 @@ router.get('/usuarios', (req, res, next) => {
 });
 
 //get servicio
-router.get('/servicios', (req, res, next) => { 
-  models.servicio.findAll({ 
+router.get('/solicitudes', (req, res, next) => { 
+  models.solicitud.findAll({ 
      
    })
-   .then(servicios => {
-      res.send(servicios)
+   .then(solicitudes => {
+      res.send(solicitudes)
    })
    .catch(error => res.status(400).send(error))
 });
