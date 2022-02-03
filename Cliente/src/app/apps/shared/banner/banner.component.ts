@@ -135,7 +135,6 @@ export class BannerComponent implements OnInit {
           break;
 
         } 
-        
       }if(user != "" && password != "" && correcto) {
         alert("Datos incorrectos");
       }
