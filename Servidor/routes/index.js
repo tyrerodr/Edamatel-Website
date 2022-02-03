@@ -42,6 +42,14 @@ router.post('/articulos', (req, res, next) => {
   res.json(cliente);
 });
 
+/* PUT usuarios actu*/
+router.put('/usuarios/:usuarioId', (req, res, next) => {
+  models.usuario.update(req.body,{
+    where: {id_usuario: req.params.usuarioId}
+  });
+  res.json({success: "modificado"}).catch(error => res.status(400).send(error))
+});
+
 /* PUT articulos  actu*/
 router.put('/articulos/:articuloId', (req, res, next) => {
     models.articulo.update(req.body,{

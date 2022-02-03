@@ -21,7 +21,6 @@ export class BannerComponent implements OnInit {
     console.log(document.cookie);
     this.asignarLogin();
     if (document.cookie != "") {
-      console.log(document.cookie);
       document.getElementById('botonesTipoCuenta')!.innerHTML = `<li class="nav-item ">
                   <a id= "perfilCliente" href="/${this.getCookie("tipo")}" class="btn-top btn-danger-gradiant font-14" >
                     ${this.getCookie("username")}
@@ -33,7 +32,6 @@ export class BannerComponent implements OnInit {
                   </a>
               </li>`;
             this.asignarLogout();
-
     };
   }
 
@@ -41,6 +39,7 @@ export class BannerComponent implements OnInit {
     document.getElementById('logout')!.addEventListener('click', function () {
       document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
       document.cookie = "tipo=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      document.cookie = "identificador=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
       location.reload();
     });
   }
@@ -101,41 +100,42 @@ export class BannerComponent implements OnInit {
 
 
   onSubmit_Login(user: string, password: string) {
+    var correcto = true;
     fetch('http://localhost:3001/api/usuarios')
     .then(texto => texto.json())
     .then(datos => {
+      if (user == "" && password == "") {
+        alert("Complete todos los campos");
+      }
       for (let usuario of datos) {
         console.log(usuario)
         // If response comes hideloader() function is called
         // to hide that loader
-        if (user == "" && password == "") {
-          alert("Complete todos los campos");
-        } else {
-            if (usuario.usuario == user) {
-              if (usuario.contraseña != password) {
-                alert("Contrasena incorrecta");
-                break;
-              } else {
-                document.getElementById("id_login")!.style.display = "none";   
-                alert("Seion iniciada");
-                document.cookie = "username=" + usuario.nombre;
-                document.cookie = "tipo=" + usuario.tipo;
-                document.getElementById('botonesTipoCuenta')!.innerHTML = `<li class="nav-item ">
-                  <a id= "perfilCliente" href="/perfil" class="btn-top btn-danger-gradiant font-14" >
-                    ${clientes[i]["name"]}
-                  </a>
-              </li>
-              <li class="nav-item ">
-                  <a id= "logout" href="/" class="btn-top btn-danger-gradiant font-14" >
-                   logout
-                  </a>
-              </li>`;
-              this.asignarLogout();
-                break;
-              }
-            }
-          }
-        }
+        if(usuario.contraseña == password && usuario.usuario == user){
+          document.getElementById("id_login")!.style.display = "none";   
+          alert("Sesion iniciada");
+          document.cookie = "username=" + usuario.nombre;
+          document.cookie = "tipo=" + usuario.tipo;
+          document.cookie = "identificador=" + usuario.id_usuario;
+          document.getElementById('botonesTipoCuenta')!.innerHTML = `<li class="nav-item ">
+            <a id="perfilCliente" href="/${usuario.tipo}" class="btn-top btn-danger-gradiant font-14" >
+              ${usuario.nombre}
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a id= "logout" href="/" class="btn-top btn-danger-gradiant font-14" >
+             logout
+            </a>
+        </li>`;
+        correcto = false;
+        this.asignarLogout();
+          break;
+
+        } 
+        
+      }if(user != "" && password != "" && correcto) {
+        alert("Datos incorrectos");
+      }
       }
       
       );
