@@ -8,7 +8,7 @@ declare var require: any;
   templateUrl: './servicios.component.html',
   styleUrls: ['./servicios.component.css'],
 })
-export class ServiciosComponent {
+export class ServiciosComponent implements OnInit {
   
 
   constructor(public service:ServiceblogService) {
