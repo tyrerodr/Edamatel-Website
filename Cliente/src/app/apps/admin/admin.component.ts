@@ -188,7 +188,7 @@ export class AdminComponent implements OnInit {
       location.reload();
       }
       if (target.id == "2") {
-        console.log("adsdff");
+        console.log("tabla");
         contenido!.innerHTML = `
                       <div class="row mt-2 text-center">
                       <div class="col-sm-3">
@@ -196,8 +196,8 @@ export class AdminComponent implements OnInit {
                             <div class="input-group-prepend">
                               <label class="input-group-text" for="inputGroupSelect01">Clientes</label>
                             </div>
-                            <select class="custom-select" id="inputGroupSelect01">
-                              <option selected>Seleccione el articulo</option>
+                            <select class="custom-select-md-4" id="inputGroupSelect01">
+                              <option value="0">Seleccione el articulo</option>
                               
                             </select>
                           </div>
@@ -215,33 +215,78 @@ export class AdminComponent implements OnInit {
                           <table id="ordenes" class="table table-striped table-hover">
                               <thead>
                                   <tr>
-                                      <th>#</th>
-                                      <th>Fecha de Factura</th>
-                                      <th>Código de Producto</th>
-                                      <th>Cantidad</th>
-                                      <th>Precio Unitario</th>
-                                      <th>Precio Parcial</th>
+                                      <th>Telefono</th>
+                                      <th>Horario</th>
+                                      <th>Servicio</th>
+                                      <th>Descripcion</th>
+
                                   </tr>
                               </thead>
                               <tbody id="ordenes_tablas">
                                   
                               </tbody>
                           </table>
-                          <div class="clearfix">
-                              <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                              <ul class="pagination">
-                                  <li class="page-item disabled"><a href="#">Previous</a></li>
-                                  <li class="page-item"><a href="#" class="page-link">1</a></li>
-                                  <li class="page-item"><a href="#" class="page-link">2</a></li>
-                                  <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                                  <li class="page-item"><a href="#" class="page-link">4</a></li>
-                                  <li class="page-item"><a href="#" class="page-link">5</a></li>
-                                  <li class="page-item"><a href="#" class="page-link">Next</a></li>
-                              </ul>
-                          </div>
+                          
                       </div>
                   </div>  
         `
+
+        const listita = document.getElementById('inputGroupSelect01');
+        fetch("http://localhost:3001/api/usuarios")
+    .then(texto => texto.json())
+    .then(usuarios => {
+      for(let usuario of usuarios) {
+        if (usuario.usuario!="admin"){
+        let plantilla = `<option id="usuario-${usuario.id_usuario}" class=${usuario.telefono} value=${usuario.id_usuario}  >${usuario.nombre} ${usuario.apellido}</option>
+             
+        `
+        
+        listita!.innerHTML += plantilla;
+        
+
+
+        console.log("xd")
+        ;}
+  
+      }
+   
+    })
+
+    var selector=document.getElementById("inputGroupSelect01") as HTMLSelectElement;
+    selector!.addEventListener('click',(e)=>{
+      
+      if(selector.value!="0"){
+      document.getElementById("ordenes_tablas")!.innerHTML = "";
+           let target= e.target as HTMLOptionElement;
+      
+       fetch("http://localhost:3002/solicitudes/"+selector.value)
+       .then(texto => texto.json())
+       .then(solicitudes => {
+         for(let solicitud of solicitudes) {
+       
+           let plantilla = `
+             <tr>        
+                       <td class="text-nowrap align-middle"><span class="num">${selector.options[selector.selectedIndex].className}</span></td>
+                       <td class="text-nowrap align-middle"><span class="hor">${solicitud.horario_solicitado}</span></td>         
+                       <td class="text-nowrap align-middle"><span class="serv">${solicitud.servicio}</span></td>
+                       <td class="text-nowrap align-middle"><span class="desc">${solicitud.descripción}</span></td>
+
+
+                     </tr>
+           `
+           
+           document.getElementById("ordenes_tablas")!.innerHTML += plantilla;
+           console.log("xd");
+     
+         }
+      
+       }) 
+       selector.value="0";
+      }
+      })
+
+    
+
       }
     });
 
