@@ -14,6 +14,11 @@ import { ServiciosComponent } from './servicios/servicios.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { AdminComponent } from './admin/admin.component';
 import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
+import { PieComponent } from './pie/pie.component';
+import { BarComponent } from './bar/bar.component';
+import { ScatterComponent } from './scatter/scatter.component';
+
+
 
 import { ServiceblogService } from './blog/blog-service.service';
 import { RelayOnComponent } from './about/About-Components/relay-on/relay-on.component';
@@ -30,7 +35,9 @@ import { MarcasComponent } from './marcas/marcas.component';
   declarations: [
     AppsComponent,
     BlogComponent,
+    BarComponent,
     AboutComponent,
+    PieComponent,
     ComputoComponent,
     ServiciosComponent,
     ClienteComponent,
@@ -41,6 +48,7 @@ import { MarcasComponent } from './marcas/marcas.component';
     FullComponent,
     BannerComponent,
     MarcasComponent,
+    ScatterComponent,
     // BannerContentComponent,
     BannerNavigationComponent,
     FooterComponent,

@@ -9,8 +9,11 @@
   <div class="container" >
     <div class="row flex-lg-nowrap">
         <div class="list-group" id="tipos" >
-            <a class="list-group-item list-group-item-danger " id=1 data-toggle="list" role="tab" >Manejar productos</a> 
-            <a class="list-group-item list-group-item-danger " id=2 data-toggle="list"  role="tab" >reporte Servicios</a> 
+            <a class="list-group-item list-group-item-danger " id="1" data-toggle="list" role="tab" >Manejar productos</a> 
+            <a class="list-group-item list-group-item-danger " id="2" data-toggle="list"  role="tab" >Reporte Servicios</a>
+            <a class="list-group-item list-group-item-danger " id="3" data-toggle="list"  role="tab" routerLink="/pie"> Grafico por categoria</a> 
+            <a class="list-group-item list-group-item-danger " id="4" data-toggle="list"  role="tab" routerLink="/bar"> Grafico por ciudad </a> 
+            <a class="list-group-item list-group-item-danger " id="5" data-toggle="list"  role="tab" routerLink="/scatter"> Grafico por solicitud </a> 
         </div>
         <div class="col" id="reporteoproducto">
   
@@ -29,7 +32,6 @@
                                 <table class="table table-bordered">
                                   <thead>
                                     <tr>
-                                     
                                       <th class="max-width">Nombre</th>
                                       <th class="sortable">Precio</th>
                                       <th>Stock </th>
@@ -155,7 +157,12 @@
                 </div>
               </div>
 
+          <div id="contenedorGrafico1">  </div>     
+
   </div>
+
+  
+  
 
 <!-- ============================================================== -->
 <!-- End Feature 1  -->

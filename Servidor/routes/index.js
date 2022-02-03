@@ -28,6 +28,17 @@ router.get('/usuarios', (req, res, next) => {
    .catch(error => res.status(400).send(error))
 });
 
+//get servicio
+router.get('/servicios', (req, res, next) => { 
+  models.servicio.findAll({ 
+     
+   })
+   .then(servicios => {
+      res.send(servicios)
+   })
+   .catch(error => res.status(400).send(error))
+});
+
 
 /* POST usuarios crear */
 router.post('/usuarios', (req, res, next) => {

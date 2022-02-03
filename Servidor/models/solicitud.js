@@ -30,6 +30,10 @@ module.exports = function(sequelize, DataTypes) {
         model: 'usuario',
         key: 'id_usuario'
       }
+    },
+      servicio: {
+      type: DataTypes.STRING(50),
+      allowNull: true
     }
   }, {
     sequelize,

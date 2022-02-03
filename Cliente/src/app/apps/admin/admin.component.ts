@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceblogService } from '../blog/blog-service.service';
 import { HttpClient } from '@angular/common/http';
+import * as d3 from "d3";
+
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-
 
   constructor(private http: HttpClient) {
 
@@ -408,5 +410,4 @@ export class AdminComponent implements OnInit {
     
   
   }
-
 }
