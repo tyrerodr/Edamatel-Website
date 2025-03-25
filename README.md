@@ -22,8 +22,8 @@ The **Edamatel Project Website** serves as an online hub that highlights our ong
 
 ## Technologies Used
 
-- **Frontend**: Built with **React.js** and **CSS** for a responsive and dynamic user experience.
-- **Backend**: (if applicable) Using **Node.js** or another suitable backend framework.
-- **Database**: (if applicable) Utilizes a **SQL** or **NoSQL** database for data storage and management.
+- **Frontend**: Built with **Angular** and **CSS** for a responsive and dynamic user experience.
+- **Backend**: **Flask**.
+- **Database**: Utilizes a **SQL** and **NoSQL** database for data storage and management.
 
 ---
